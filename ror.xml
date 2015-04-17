@@ -6,9 +6,9 @@
 
 <item>
      <link>http://www.poiroe.ml/</link>
-     <title>Poiroe</title>
-     <description>Botany Template is free responsive template with a fluid background image.</description>
-     <ror:updatePeriod></ror:updatePeriod>
+     <title>poiroe | 星之所往 无所不能</title>
+     <description>星之所往丨无所不能</description>
+     <ror:updatePeriod>daily</ror:updatePeriod>
      <ror:sortOrder>0</ror:sortOrder>
      <ror:resourceOf>sitemap</ror:resourceOf>
 </item>
@@ -16,15 +16,15 @@
      <link>http://www.poiroe.ml/blog/</link>
      <title>poiroe</title>
      <description>poiroe</description>
-     <ror:updatePeriod></ror:updatePeriod>
+     <ror:updatePeriod>daily</ror:updatePeriod>
      <ror:sortOrder>1</ror:sortOrder>
      <ror:resourceOf>sitemap</ror:resourceOf>
 </item>
 <item>
-     <link>http://www.poiroe.ml/services.html</link>
-     <title>poiroe</title>
-     <description>Botany Template, Services, free template, responsive bootstrap</description>
-     <ror:updatePeriod></ror:updatePeriod>
+     <link>http://www.poiroe.ml/About.html</link>
+     <title>poiroe | 星之所往 无所不能</title>
+     <description>星之所往丨无所不能</description>
+     <ror:updatePeriod>daily</ror:updatePeriod>
      <ror:sortOrder>1</ror:sortOrder>
      <ror:resourceOf>sitemap</ror:resourceOf>
 </item>
@@ -32,7 +32,7 @@
      <link>http://www.poiroe.ml/blog/archives/</link>
      <title>Archives | poiroe</title>
      <description>Archives | poiroe</description>
-     <ror:updatePeriod></ror:updatePeriod>
+     <ror:updatePeriod>daily</ror:updatePeriod>
      <ror:sortOrder>2</ror:sortOrder>
      <ror:resourceOf>sitemap</ror:resourceOf>
 </item>
@@ -45,8 +45,20 @@
 
 常去网站贴吧 NAG Acfun 斗奶
 
-关于博客博主废宅一枚，也不是大触，所以本站也就不会有什么技术类文章，只是用来更新零碎的心情日记和其他一些乱七八糟的。</description>
-     <ror:updatePeriod></ror:updatePeriod>
+关于博客博主废宅一枚，也不是大触，所以本站也就不会有什么技术类文章，只是用来更新零碎的心情日记和其他一些乱七八糟的。
+求壕赞助com域名啊！</description>
+     <ror:updatePeriod>daily</ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>http://www.poiroe.ml/blog/2015/04/15/2015-04-15/</link>
+     <title>lol中二召唤台词收集。 | poiroe</title>
+     <description>锐雯汝之剑魂即吾魂，汝之剑刃即吾身，用手中之剑斩断来犯之敌！同调召唤！放逐之刃 锐雯！
+墨菲特毁灭的流光掠过天际，那是浑身浴火的巨兽！自天穹降临的巨龙啊，用冲击与炙炎烧毁吾之敌人！冲击吧！熔岩巨兽！
+塞恩暗泱。堕狱。悸动。始化。末夜。残宿。生者之陨，亡者永生。 同步召唤，亡灵战神 塞恩！
+兰博那火焰是风的绿色，那风带着火焰的高温！把视野投�</description>
+     <ror:updatePeriod>daily</ror:updatePeriod>
      <ror:sortOrder>2</ror:sortOrder>
      <ror:resourceOf>sitemap</ror:resourceOf>
 </item>
@@ -54,7 +66,7 @@
      <link>http://www.poiroe.ml/blog/2015/04/13/20150413/</link>
      <title>关于游戏id的事 | poiroe</title>
      <description>我赵日天在这午夜三更对着丁丁发誓再和你们改格式id就duodiao，毕竟没有不散的宴席，到最后有新圈子的忙现实的弃坑的只留下个灰色的id，自己就像落了单的鸟儿一样不是滋味！矫情完，睡觉！╭(╯^╰)╮</description>
-     <ror:updatePeriod></ror:updatePeriod>
+     <ror:updatePeriod>daily</ror:updatePeriod>
      <ror:sortOrder>2</ror:sortOrder>
      <ror:resourceOf>sitemap</ror:resourceOf>
 </item>
@@ -62,7 +74,7 @@
      <link>http://www.poiroe.ml/blog/2015/04/12/20150412/</link>
      <title>博客终于弄好啦o(∩_∩)o | poiroe</title>
      <description>本站是搭建在红帽云上的，博客用的是hexo 主题是Jacman有兴趣的可以去看看，不懂的地方微博私信我，反正我不会回复的=。=</description>
-     <ror:updatePeriod></ror:updatePeriod>
+     <ror:updatePeriod>daily</ror:updatePeriod>
      <ror:sortOrder>2</ror:sortOrder>
      <ror:resourceOf>sitemap</ror:resourceOf>
 </item>
@@ -71,7 +83,15 @@
      <title>Hello World | poiroe</title>
      <description>Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
 Quick</description>
-     <ror:updatePeriod></ror:updatePeriod>
+     <ror:updatePeriod>daily</ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>http://www.poiroe.ml/index.html</link>
+     <title>poiroe | 星之所往 无所不能</title>
+     <description>星之所往丨无所不能</description>
+     <ror:updatePeriod>daily</ror:updatePeriod>
      <ror:sortOrder>2</ror:sortOrder>
      <ror:resourceOf>sitemap</ror:resourceOf>
 </item>
@@ -79,7 +99,7 @@ Quick</description>
      <link>http://www.poiroe.ml/blog/archives/2015/04/</link>
      <title>Archives: 2015/4 | poiroe</title>
      <description>Archives: 2015/4 | poiroe</description>
-     <ror:updatePeriod></ror:updatePeriod>
+     <ror:updatePeriod>daily</ror:updatePeriod>
      <ror:sortOrder>3</ror:sortOrder>
      <ror:resourceOf>sitemap</ror:resourceOf>
 </item>
@@ -92,8 +112,9 @@ Quick</description>
 
 常去网站贴吧 NAG Acfun 斗奶
 
-关于博客博主废宅一枚，也不是大触，所以本站也就不会有什么技术类文章，只是用来更新零碎的心情日记和其他一些乱七八糟的。</description>
-     <ror:updatePeriod></ror:updatePeriod>
+关于博客博主废宅一枚，也不是大触，所以本站也就不会有什么技术类文章，只是用来更新零碎的心情日记和其他一些乱七八糟的。
+求壕赞助com域名啊！</description>
+     <ror:updatePeriod>daily</ror:updatePeriod>
      <ror:sortOrder>3</ror:sortOrder>
      <ror:resourceOf>sitemap</ror:resourceOf>
 </item>
