@@ -1,1 +1,0 @@
-#pic_2233{position:absolute;top:0;transition:1.6s;width:1300px;height:1179px;background:transparent url(http://i1.hdslb.com/u_user/activites/bml2015/img/2233_cd.png) no-repeat center;left:-22%;filter:alpha(opacity=0);-moz-opacity:0;-khtml-opacity:0;opacity:0;}
