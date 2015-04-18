@@ -118,11 +118,14 @@ a img {
   -webkit-margin-after: 0;
 }
 body {
-  background: #ddd;
+  background: #b4c1e3;
   font-family: "Helvetica Neue", "Helvetica", "Microsoft YaHei", "WenQuanYi Micro Hei", Arial, sans-serif;
   font-size: 100%;
   color: #817c7c;
   line-height: 1.5;
+  line-height: 1.5;
+  font-weight: 100 !important;
+  text-shadow: 0.5px 0.1px 0.2px #999;
 }
 iframe {
   margin-top: 10px;
@@ -374,10 +377,7 @@ input[type="search"]::-webkit-search-decoration {
   }
 }
 body >header {
-  width: 100%;
-  -webkit-box-shadow: 2px 4px 5px rgba(3,3,3,0.2);
-  box-shadow: 2px 4px 5px rgba(3,3,3,0.2);
-  background: url("../") center #69c;
+  background: url("../img/1page.png") center #69c;
   color: #fff;
   padding: 1em 0 0.8em;
 }
@@ -400,6 +400,9 @@ body >header >div {
 body >header a {
   display: block;
   color: #fff;
+}
+body ::selection {
+  background: #b4c1e3;
 }
 #imglogo {
   float: left;
@@ -532,7 +535,6 @@ header nav ul li a {
   }
 }
 header nav ul li a:hover {
-  background: #3373b2;
   color: #e9cd4c;
 }
 .shownav {
@@ -624,7 +626,7 @@ header nav ul li a:hover {
   }
 }
 #main section.post a:hover {
-  border-left: 0.5em solid #69c;
+  border-left: 0.8em solid #69c;
 }
 #main section.post a h1 {
   color: #2ca6cb;
@@ -669,7 +671,7 @@ header nav ul li a:hover {
   padding: 6px 15px;
   -webkit-border-radius: 15px;
   border-radius: 15px;
-  background: #ddd;
+  background: #b4c1e3;
   color: #817c7c;
   text-decoration: none;
 }
