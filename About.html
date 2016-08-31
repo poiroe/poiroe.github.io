@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+	<title>Poiroe</title>
+	<link href="logo.css" rel="stylesheet" type="text/css"/>
+	<link href="http://7xik7m.com1.z0.glb.clouddn.com/core.css" rel="stylesheet" type="text/css">
+<style>.ad,div[class^="ad-widsget"],div.ad960-90,div.ad-side,table.adtable,div.a_mu,div.a_h,ins.adsbygoogle,div.ad_pic,div#ggPar,div.wp.a_f,div.wp.a_t,div.a_p,div.a_pb,div.a_pt,div.a_pr,#preAdContent,div.a_cn,div.bm.a_c,div[id^="div-gpt-ad-"]{display:none !important;}</style></head>
+<body class="Background-image">
+<canvas id="canvas" style="position:absolute;display:block"></canvas>
+  <div oncontextmenu="return false;" ondragstart="return false;" onselectstart="return false;" onselect="document.selection.empty();">
+	<div id="main_container">
+		<div class="container" id="services">
+			<div class="row col-wrap">			
+				<div id="left_container" class="col col-md-3 col-sm-12">
+					<div class="logo">
+						<a href="http://lolbox.duowan.com/playerDetail.php?serverName=%E7%94%B5%E4%BF%A1%E4%B8%80&playerName=Poiroe"target="blank"><img src="http://7xik7m.com1.z0.glb.clouddn.com/poiroe.png"/></a>
+					</div>
+					<nav id="main_nav">
+						<ul class="nav">
+							<li><a href="index.html">首页/Home</a></li>
+							<li>●—●</li>
+						    <li><a href="http://poiroe.me/blog/">博客/Blog</a></li>
+							<li>●—●</li>
+						    <li><a href="#">关于/About</a></li>
+							</ul>
+					</nav> <!-- nav -->	
+						<div="loader_shining">                   <!--loading-->
+                        <div id="loader_shining_inner"></div>
+						<a href="http://tieba.baidu.com/home/main?id=b764bcabd1e78734&fr=userbar"target="blank"><img src="http://7xik7m.com1.z0.glb.clouddn.com/baidu.png"/></a>
+						<a href="http://weibo.com/Poiroe"target="blank"><img src="http://7xik7m.com1.z0.glb.clouddn.com/weibo.png" alt="Like us on weibo"/></a>
+						<a href="#"><img src="http://7xik7m.com1.z0.glb.clouddn.com/QQ.png"/></a>
+						<div style="margin-top: 602pt;"></div>
+					</div>		  	
+				<div id="right_container" class="col col-md-9 col-sm-12">
+					<div class="row">
+                    	<div class="col col-md-12">
+                    	<script type="text/javascript" src="http://lwlapi.sinaapp.com/hitokoto/?encode=js&charset=utf-8"></script><div style="color:#FF961F;font-size:18px" id="lwlhitokoto"><script>lwlhitokoto()</script></div>
+                        </div>
+						<div align="center"><img src="http://7xik7m.com1.z0.glb.clouddn.com/old/AC.png" /></div> 
+                   
+						</div>
+				<span class="clearfix"></span><                    
+				</div><script>
+
+var oCvs=document.getElementById("canvas");
+oCvs.width=1200;oCvs.height=800;
+//oCvs.style.right=-200;
+oCvs.style.left=(document.body.clientWidth-oCvs.width)/0.7+"px";
+oCvs.style.top=(document.body.clientHeight-oCvs.height)/0.9+"px";
+//oCvs.style.background="#ccc";
+
+var ctx=oCvs.getContext("2d");
+var W=ctx.canvas.width,H=ctx.canvas.height,deg=Math.PI;
+var p={};
+
+//ctx.globalCompositeOperation="destination-over";
+
+var disX=0,disY=0;
+
+var blinkBool=false,blinkValue=1;
+
+</script>
+<script src="fn.js"></script>
+<script src="style.js"></script>
+<script>
+/*
+	//初始化
+	ctx.save();
+	getPosition(w,h);
+
+	//变换
+	ctx.translate(W/2,H/2);
+
+	//绘制
+	ctx.beginPath();
+
+	//恢复设置
+	ctx.restore()	
+*/
+
+//眼睛
+function eye(ctx,w,h,m,side,color)
+{
+	//初始化
+	ctx.save();
+	var _w=null;
+	side=="left"?_w=-w/2:_w=w/2;
+
+	//变换
+	ctx.translate(W/2+_w,H/2+m);
+
+	//运动
+	eyeMove(side,w);
+
+	//绘制
+	eyeClip(h,h*blinkValue);
+	ctx.beginPath();
+	ctx.arc(0,0,h,0,360*deg);
+	ctx.fillStyle=color;
+	ctx.fill();
+
+	//恢复设置
+	ctx.restore()
+}
+
+/*
+xxxMove()函数为实现大白的交互效果——头部和眼睛、眼线跟随鼠标移动加入的图形变换，头部和眼线相对简单就不再说明了
+PS：因为是通过2D方式实现，透视程度像画画一样是凭经验估算的，而并不是像3D那样通过精确的空间坐标计算得到的，所以为什么用某个数字只是调校的结果
+
+眼睛部分transform的参数说明：
+首先四个if判断分别对应左眼在鼠标在右边（disX>=0)、左边（disX<0），以及右眼在鼠标左、右的情况
+以第一个为例
+1.
+0.94——初始状态下（disX、disY为0）的透视变形效果
++disX/150——左眼左转时的透视缩放
+
+2.
+-0.03——初始状态下的透视变形
++disY/150——向上向下时的变形
+
+3.
+0
+
+4.
+1——transform的默认值
++disX/180——右转时高的变化
++Math.abs(disY-2)/120——向上向下时的缩小，其中-2是因眼睛位置不在脸凸起的正中出所作的修正
+
+5.
+disX*4.5——跟随鼠标的位移
++(w/2*Math.abs(disX/55))——右移后缩小两眼之间的长度
+
+6.disY*5——跟随鼠标的位移
+
+
+*/
+function eyeMove(side,w)
+{
+	if(side=="left" && disX>=0)
+	{
+		ctx.transform
+		(
+			0.94+disX/150,
+			-0.03+disY/150,
+			0,
+			1+disX/180-Math.abs(disY-2)/120,
+			disX*4.5+(w/2*Math.abs(disX/55)),
+			disY*5
+		)
+	}
+	else if(side=="left"  && disX<0)
+	{
+		ctx.transform
+		(
+			0.94+disX/30,
+			-0.03+disY/(150+disX*16),
+			0,
+			1+disX/120-Math.abs(disY-2)/100,
+			disX*4.5+(w/2*Math.abs(disX/55))+Math.abs(disY*Math.abs(disX/15)),
+			disY*5
+		)
+	}
+	else if(side=="right" && disX<=0)
+	{
+		ctx.transform
+		(
+			0.94-disX/150,
+			0.03-disY/150,
+			0,
+			1-disX/180-Math.abs(disY-2)/120,
+			disX*4.5-(w/2*Math.abs(disX/55)),
+			disY*5
+		)
+	}
+	else if(side=="right" && disX>0)
+	{
+		ctx.transform
+		(
+			0.94-disX/30,
+			0.03-disY/(150-disX*16),
+			0,
+			1-disX/120-Math.abs(disY-2)/100,
+			disX*4.5-(w/2*Math.abs(disX/55))-Math.abs(disY*Math.abs(disX/15)),
+			disY*5
+		)
+	}
+}
+
+function eyeClip(w,h)
+{
+	ctx.beginPath();
+	ctx.lineTo(-w,-h);
+	ctx.lineTo(w,-h);
+	ctx.lineTo(w,h);
+	ctx.lineTo(-w,h);
+	ctx.lineTo(-w,-h);
+	ctx.clip();
+}
+
+//眼线
+function eyeline(ctx,w,h,m,color)
+{
+	//初始化
+	ctx.save();
+	getPosition(w,h);
+
+	//变换
+	ctx.translate(W/2,H/2+m);
+
+	//运动
+	eyelineMove();
+
+	//绘制
+	ctx.beginPath();
+	path("LT");
+	path("MT","RT");
+	path("RB");
+	path("MB","LB");
+	path("LT");
+	ctx.fillStyle=color;
+	ctx.fill();
+
+	//恢复设置
+	ctx.restore()		
+}
+function eyelineMove()
+{
+	ctx.translate(disX*4.5,disY*5);
+	p.MT.y+=disY*2+1;
+	p.MB.y+=disY*2+1;
+	
+}
+
+function eyes(color)
+{
+eye(ctx,d.eyeWidth,d.eyeSize,d.eyeMiddle,"left",color);
+eye(ctx,d.eyeWidth,d.eyeSize,d.eyeMiddle,"right",color);
+eyeline(ctx,d.eyeWidth,d.eyeline,d.eyelineMiddle,color);
+}
+
+function renderEye()
+{
+	ctx.save();
+	eyes(light(100,0.8));
+	ctx.translate(-disX/3,-2);
+	eyes(light(0));
+	ctx.restore();
+}
+
+//头
+function head(ctx,w,h,m,a1,a2,color)
+{
+	//初始化
+	ctx.save();
+	getPosition(w,h);
+
+	//变换
+	headAdj(a1,a2);
+	ctx.translate(W/2,H/2+m);
+
+	//运动
+	headMove();
+
+	//绘制
+	ctx.beginPath();
+	path("LM");
+	path("LT","MT");
+	path("RT","RM");
+	path("RB","MB");
+	path("LB","LM");
+	//ctx.stroke();
+	ctx.fillStyle=color;
+	ctx.fill();
+	
+	//恢复设置
+	ctx.restore()
+}
+function headAdj(a1,a2)
+{
+	p.LT.x=p.LT.x*a1;
+	p.LT.y=p.LT.y*(1-(1-a1)/1.5);
+	p.RT.x=p.RT.x*a1;
+	p.RT.y=p.RT.y*(1-(1-a1)/1.5);
+
+	p.LB.x=p.LB.x*a2;
+	p.LB.y=p.LB.y*a2;
+	p.RB.x=p.RB.x*a2;
+	p.RB.y=p.RB.y*a2;
+}
+function headMove()
+{
+	ctx.transform
+	(
+		(1-Math.abs(disX/100)),
+		0,
+		0,
+		1+disY/160,
+		0,
+		0
+	)
+
+	p.LT.y=p.LT.y*(1+disX/120);
+	p.LB.y=p.LB.y*(1+disX/120);
+	p.RT.y=p.RT.y*(1-disX/120);
+	p.RB.y=p.RB.y*(1-disX/120);
+
+	p.LT.x=p.LT.x*(1+disX/60);
+	p.LM.x=p.LM.x*(1+disX/60);
+	p.LB.x=p.LB.x*(1+disX/60);
+
+	p.RT.x=p.RT.x*(1-disX/60);
+	p.RM.x=p.RM.x*(1-disX/60);
+	p.RB.x=p.RB.x*(1-disX/60);
+}
+
+function renderHead()
+{
+	//阴影
+	ctx.save();
+	ctx.globalCompositeOperation="source-atop";
+	  //半影
+	setShadow({x:-disX,y:28,color:light(70-disY/2),blur:35});
+	head(ctx,d.headWidth,d.headHeight,d.headMiddle,d.headAdj1,d.headAdj2,light(55));
+	  //本影
+	setShadow({x:0,y:8+disY/5,color:light(40),blur:15});
+	head(ctx,d.headWidth,d.headHeight,d.headMiddle,d.headAdj1,d.headAdj2,light(55));
+	ctx.restore();
+
+	//底色
+	head(ctx,d.headWidth,d.headHeight,d.headMiddle,d.headAdj1,d.headAdj2,light(55-disY/2));
+	
+	//打光
+	ctx.save();
+	ctx.globalCompositeOperation="source-atop";
+	setShadow({y:9,color:light(75),blur:13});
+	head(ctx,d.headWidth-2,d.headHeight-18,d.headMiddle-11,d.headAdj1,d.headAdj2+0.06,headColor1);
+	ctx.restore();
+
+	//高光
+	head(ctx,d.headWidth-2,d.headHeight-18,d.headMiddle-11,d.headAdj1-0.03,d.headAdj2,headColor2);
+}
+
+
+
+//身体
+function _body(ctx,w,h,m,a,color)
+{
+	//初始化
+	ctx.save();
+	getPosition(w,h);
+
+	//变换
+	_bodyAdh(a);
+	ctx.translate(W/2,H/2+m);
+	
+	//绘制
+	ctx.beginPath();
+	path("MT");
+	path("LT","LB");
+	path("RB");
+	path("RT","MT");
+	//ctx.stroke();
+	ctx.fillStyle=color;
+	ctx.fill();
+
+	//恢复设置
+	ctx.restore()	
+}
+function _bodyAdh(a)
+{
+	p.LT.y=p.LT.y*a;
+	p.RT.y=p.RT.y*a;
+}
+
+function render_body()
+{
+	//打底
+	_body(ctx,d._bodyWidth,d._bodyHeight,d._bodyMiddle,d._bodyAdj,light(90));
+
+	//左右半影
+	ctx.save();
+	ctx.globalCompositeOperation="source-atop";
+	setShadow({x:-25,y:65,color:light(60),blur:30});
+	_body(ctx,d._bodyWidth,d._bodyHeight,d._bodyMiddle,d._bodyAdj,light(100));
+	ctx.restore();
+	ctx.save();
+	ctx.globalCompositeOperation="source-atop";
+	setShadow({x:25,y:65,color:light(60),blur:30});
+	_body(ctx,d._bodyWidth,d._bodyHeight,d._bodyMiddle,d._bodyAdj,light(100));
+	ctx.restore();
+
+	//左右本影
+	ctx.save();
+	ctx.globalCompositeOperation="source-atop";
+	setShadow({x:-10,y:70,color:light(30),blur:15});
+	_body(ctx,d._bodyWidth,d._bodyHeight,d._bodyMiddle,d._bodyAdj,light(100));
+	ctx.restore();
+	ctx.save();
+	ctx.globalCompositeOperation="source-atop";
+	setShadow({x:10,y:70,color:light(30),blur:15});
+	_body(ctx,d._bodyWidth,d._bodyHeight,d._bodyMiddle,d._bodyAdj,_bodyColor1);
+	ctx.restore();
+
+	//打光
+	_body(ctx,d._bodyWidth,d._bodyHeight,d._bodyMiddle,d._bodyAdj,_bodyColor2);
+	_body(ctx,d._bodyWidth,d._bodyHeight,d._bodyMiddle,d._bodyAdj,_bodyColor3);
+}
+
+//手臂
+function arm(ctx,w,h,m,a,color)
+{
+	//初始化
+	ctx.save();
+	getPosition(w,h);
+
+	//变换
+	armAdh(a);
+	ctx.translate(W/2,H/2+m);
+	
+	//绘制
+	ctx.beginPath();
+	path("MT");
+	path("LT","LB");
+	path("RB");
+	path("RT","MT");
+	//ctx.stroke();
+	ctx.fillStyle=color;
+	ctx.fill();
+
+	//恢复设置
+	ctx.restore()
+}
+function armAdh(a)
+{
+	p.LT.x=p.LT.x*a;
+	p.RT.x=p.RT.x*a;
+}
+function renderArm()
+{
+	arm(ctx,d.armWidth,d.armHeight,d.armMiddle,d.armAdj,armColor);
+}
+
+
+//芯片口
+function chip(ctx,r,x,y)
+{
+	ctx.save();
+	//颜色
+	ctx.translate(W/2+x,H/2+y);
+	ctx.transform(1,0.07,0,0.97,0,0);
+	
+	ctx.beginPath();
+	ctx.arc(0,0,r,0,360*deg);
+	ctx.fillStyle=chipColor1;
+	ctx.fill();
+	ctx.beginPath();
+	ctx.arc(0,0,r,0,360*deg);
+	ctx.fillStyle=chipColor2;
+	ctx.fill();
+
+	//线条
+	ctx.beginPath();
+	ctx.lineTo(-r,0);
+	ctx.lineTo(-r+r/2.5,0);
+	ctx.lineTo(-r+r/2.5+r/6,-r/2.5);
+	ctx.lineTo(-r+r/2.5+r/6+r/1.15,-r/2.5);
+	ctx.lineTo(-r+r/2.5+r/6+r/1.15+r/6,0);
+	ctx.lineTo(r,0)
+	ctx.strokeStyle=light(60)
+	ctx.stroke();
+
+	ctx.restore();
+
+}
+
+//背景
+function bg(color)
+{
+	ctx.save();
+	ctx.globalCompositeOperation="destination-over";
+	ctx.fillStyle=color;
+	ctx.restore();
+}
+
+
+//logo
+function logo()
+{
+	//初始化
+	ctx.save();
+	ctx.translate(150,60);
+	
+
+	
+	//恢复设置
+	ctx.restore();
+}
+
+function draw()
+{	
+	ctx.clearRect(0,0,W,H);
+	renderArm();
+	render_body();
+	renderHead();
+	renderEye();
+	chip(ctx,d.chipR,d.chipX,d.chipY);
+	bg("rgb(193,26,36)");
+	logo();
+}
+
+/*
+
+*/
+
+/*
+try
+{
+	draw();
+	setTimeout(function(){window.location.reload()},2000);	
+}
+catch(e)
+{
+	console.log(e);
+	setTimeout(function(){window.location.reload()},2000);	
+}
+*/
+
+//眨眼
+
+
+function _blink()
+{
+var timer=setInterval(function()
+{
+	if(!blinkBool && blinkValue>0)
+	{
+		blinkValue-=0.25;
+		draw();
+	}
+	else if(!blinkBool && blinkValue<=0)
+	{
+		blinkBool=true;
+		blinkValue+=0.25;
+		draw();
+	}
+	else if(blinkBool && blinkValue<1)
+	{
+		blinkValue+=0.25;
+		draw();
+	}
+	else if(blinkBool && blinkValue==1)
+	{
+		blinkBool=false;
+		draw();
+		clearInterval(timer);
+	}
+},50)
+}
+setInterval(_blink,7000);
+
+window.onload=function()
+{
+	draw();
+	document.onmousemove=function(ev)
+	{
+	var oEv=ev||event;
+	disX=(oEv.clientX-oCvs.offsetLeft-W/2)/125*1680/window.innerWidth;
+	disY=(oEv.clientY-oCvs.offsetTop-H/2)/100*950/window.innerHeight;
+	
+	draw()
+	}
+}
+
+console.log("制作:柠檬射手")
+
+</script>
+			</div>
+			<footer class="row credit">
+				<div class="col col-md-12">
+					<div id="footer">
+						Copyright © 2015 Poiroe. All rights reserved
+						<br>本站遵循 CC BY-NC-SA 协议，受数字千年版权法案保护
+					</div>
+				</div>
+			</footer>
+		</div>		
+	</div>
+</body>
+<script src="http://upcdn.b0.upaiyun.com/libs/jquery/jquery-2.0.3.min.js"></script>
+<script src="http://7xik7m.com1.z0.glb.clouddn.com/snow_noMobile.js"></script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?ed812bca8d0b65aa20b922ba1808fdfc";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<!-- <script>function hto(x){document.getElementById("hitokoto").innerHTML="<span class='hitokoto'><a href='http://hitokoto.us/view/"+x.id+"' target='_blank'>"+x.hitokoto+"</a></span>";}</script>
+<script type="text/javascript">function genHitokoto(){var hjs=document.createElement('script');hjs.setAttribute('src','https://api.hitokoto.us:214/rand?encode=jsc&fun=hto');document.body.appendChild(hjs);}setInterval(genHitokoto,1e4);genHitokoto();</script></html> -->
+</html>
