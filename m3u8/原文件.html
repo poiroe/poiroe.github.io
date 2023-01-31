@@ -1,0 +1,41 @@
+<!DOCTYPE html>  
+<html>  
+    <head>  
+        <meta charset="UTF-8">  
+        <title></title> 
+		<script language="javascript" type="text/javascript" src="../assets/js/hls.js"  charset="gb2312" ></script><!-- hls.js必须引入，可下载至本地 -->
+        <style type="text/css">  
+           
+        </style>  
+    </head>  
+    <body>  
+        <div>  
+	<video id="video-main" width='auto' height="400" src="" controls autoplay muted></video>
+        </div>  
+    </body>  
+  <script type="text/javascript">
+	//播放地址
+	var hlsUrl="../m3u8/omou.m3u8";//需要替换为自己的视频流地址
+
+	//播放视频流 
+        function loadVideo(){
+	var video = document.getElementById('video-main');//获取 video 标签
+	if(Hls.isSupported()) {
+	var hls = new Hls();//实例化 Hls 对象
+	hls.loadSource(hlsUrl);//传入路径
+	hls.attachMedia(video);
+	hls.on(Hls.Events.MANIFEST_PARSED,function() {
+		   video.play();//调用播放 API
+		});
+	} else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+	          video.src = hlsUrl;
+	          video.addEventListener('loadedmetadata',function() {
+	              video.play();
+	          });
+	      }
+    }
+		
+  //方法调用
+  loadVideo();
+  </script>
+</html>
