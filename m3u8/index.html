@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta, title, CSS, favicons, etc. -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="omou Home">
+    <meta name="keywords" content="omou,Homepage">
+    <meta name="author" content="omou">
+    <title>omou live</title>
+    <link rel="stylesheet" type="text/css" href="../assets/css/onlinewebfonts.css"/>
+    <link rel="stylesheet" type="text/css" href="../assets/css/vno.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/iconfont.css">
+    <link rel="apple-touch-icon" href="../apple-touch-icon.png">
+    <link rel="icon" href="../favicon.ico">
+	<script src="../assets/js/hls.js"> </script>
+	<script src="/assets/js/DPlayer.min.js"> </script>
+</head>
+<body>
+    <div class="main">
+<!--        以下为背景虚化，其他内容清晰-->
+<!--        内容层-->
+    <div class="banner">
+    <div class="banner-contain"> <div>  
+	<video id="video"  width='auto' height="400" src="" controls autoplay muted></video>
+        </div>
+            </div>
+<!--            背景层-->
+            <div class="banner-bg"></div>
+        </div>
+    </div>
+    <style>
+        .main{
+            width: 100%;
+        }
+        .banner{
+            width: 100%;
+            position: relative;
+        }
+        .banner-bg{
+            width:100vw;
+            height:100vh;
+            padding-top: 52.734%;/*图片高度除以宽度，得到此值*/
+            background: #20263e center center no-repeat;/*两个center分别为水平和垂直方向的对齐方式*/
+            background-size: 100%;/*背景水平铺满*/
+			background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+           <!-- filter:blur(10px);/*虚化值，越大越模糊*/
+        } -->
+        .banner-contain{
+		 border: 20px solid #20263e;
+		  text-align: center;		  
+            position: absolute;/*设置内容层绝对定位*/                        
+            z-index: 6;/*将内容至于上层*/
+            margin-top: 10%;
+		    margin-Left: 18%;
+			box-shadow: 1rem 1rem 3rem #7392ff,
+    -1rem -1rem 3rem #7392ff;
+    </style>
+</body>
+<script type="text/javascript">
+	//播放地址
+	var hlsUrl="../m3u8/hls/omou.m3u8";//需要替换为自己的视频流地址
+
+	//播放视频流 
+        function loadVideo(){
+	var video = document.getElementById('video');//获取 video 标签
+	if(Hls.isSupported()) {
+	var hls = new Hls();//实例化 Hls 对象
+	hls.loadSource(hlsUrl);//传入路径
+	hls.attachMedia(video);
+	hls.on(Hls.Events.MANIFEST_PARSED,function() {
+		   video.play();//调用播放 API
+		});
+	} else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+	          video.src = hlsUrl;
+	          video.addEventListener('loadedmetadata',function() {
+	              video.play();
+	          });
+	      }
+    }
+		
+  //方法调用
+  loadVideo();
+  </script>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <video  width="1000" height="563" src="../m3u8/1.mp4" autoplay="autoplay" muted="muted" controls="controls" loop="loop"></video> -->
