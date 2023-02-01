@@ -5,12 +5,12 @@
   
   <title>天涯明月刀体验服金兰 | 𝒐𝒎𝒐𝒖&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="(function(){var player &#x3D; new DPlayer({&quot;container&quot;:document.getElementById(&quot;dplayer0&quot;),&quot;theme&quot;:&quot;#FADFA3&quot;,&quot;loop&quot;:true,&quot;screenshot&quot;:&quot;yes&quot;,&quot;video&quot;:{&quot;url&quot;:&quot;https:&#x2F;&#x2F;v.superbed.cn&#x2F;hls&#x2F;63d90a93e90d1c009812861">
+  <meta name="description" content="var isiPad &#x3D; navigator.userAgent.match(&#x2F;iPad|iPhone|Android|Linux|iPod&#x2F;i) !&#x3D; null; var isiPad &#x3D; false; if(isiPad) { document.getElementById(&#39;player&#39;).innerHTML &#x3D; &#39;&#39;; } else { var options &#x3D; { conta">
 <meta property="og:type" content="article">
 <meta property="og:title" content="天涯明月刀体验服金兰">
 <meta property="og:url" content="https://omou.ml/blog/2017/08/20/20170820/index.html">
 <meta property="og:site_name" content="𝒐𝒎𝒐𝒖&#39;s Blog">
-<meta property="og:description" content="(function(){var player &#x3D; new DPlayer({&quot;container&quot;:document.getElementById(&quot;dplayer0&quot;),&quot;theme&quot;:&quot;#FADFA3&quot;,&quot;loop&quot;:true,&quot;screenshot&quot;:&quot;yes&quot;,&quot;video&quot;:{&quot;url&quot;:&quot;https:&#x2F;&#x2F;v.superbed.cn&#x2F;hls&#x2F;63d90a93e90d1c009812861">
+<meta property="og:description" content="var isiPad &#x3D; navigator.userAgent.match(&#x2F;iPad|iPhone|Android|Linux|iPod&#x2F;i) !&#x3D; null; var isiPad &#x3D; false; if(isiPad) { document.getElementById(&#39;player&#39;).innerHTML &#x3D; &#39;&#39;; } else { var options &#x3D; { conta">
 <meta property="og:locale">
 <meta property="article:published_time" content="2017-08-20T13:41:55.000Z">
 <meta property="article:modified_time" content="2017-08-20T14:43:22.000Z">
@@ -54,7 +54,7 @@
           open_in_new: false
       }
   </script>
-<meta name="generator" content="Hexo 6.3.0"><script src="https://cdn.jsdelivr.net/npm/dplayer/dist/DPlayer.min.js"></script><script src="/blog/js/hls.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/dplayer/dist/DPlayer.min.css"></head>
+<meta name="generator" content="Hexo 6.3.0"></head>
 <body>
   <div id="container">
     <div class="left-col">
@@ -253,8 +253,45 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <div id="dplayer0" class="dplayer hexo-tag-dplayer-mark" style="margin-bottom: 20px;"></div><script>(function(){var player = new DPlayer({"container":document.getElementById("dplayer0"),"theme":"#FADFA3","loop":true,"screenshot":"yes","video":{"url":"https://v.superbed.cn/hls/63d90a93e90d1c0098128619.m3u8?t=63da887f&n=505010df&s=313686cd"},"danmaku":{"api":"https://api.prprpr.me/dplayer/","token":"tokendemo"}});window.dplayers||(window.dplayers=[]);window.dplayers.push(player);})()</script>
-<div id="dplayer1" class="dplayer hexo-tag-dplayer-mark" style="margin-bottom: 20px;"></div><script>(function(){var player = new DPlayer({"container":document.getElementById("dplayer1"),"loop":true,"screenshot":"yes","video":{"url":"https://omou.ml/m3u8/2.mp4"},"danmaku":{"api":"https://api.prprpr.me/dplayer/"}});window.dplayers||(window.dplayers=[]);window.dplayers.push(player);})()</script>
+        <div id="player" style="width:100%;height:100%;flex:auto;"></div>
+<script src="https://v.superbed.cn/static/node_modules/dplayer/dist/DPlayer.min.js?v=d6dd94d7fd311a105902b883fbff6594e8633ece671410d9eca6e71c1e121b00143ebcf24bed362aeb35733d1ec64e5e3325f1c1f1f18ffd492ee89efe9eb15c"></script>
+<script src="https://v.superbed.cn/static/node_modules/hls.js/dist/hls.min.js?v=91bb97d76a8c91e19903e9cd3748ae81d53719905cd591565a4e53bf68f27b55c26c85bc670a2b1e41fbc048b851487f3fbaa4454d5b10aada44313b3b8fbaae"></script>
+<script>
+var isiPad = navigator.userAgent.match(/iPad|iPhone|Android|Linux|iPod/i) != null;
+var isiPad = false;
+if(isiPad) {
+document.getElementById('player').innerHTML = '<video src="https://v.superbed.cn/hls/63d90a93e90d1c0098128619.m3u8" width="100%" height="100%" preload="meta" controls="controls" webkit-playsinline="true" style="width: 100%; height: 100%; background-color: rgb(0, 0, 0);"></video>';
+} else {
+var options = {
+container: document.getElementById('player'),
+autoplay: true,
+theme: '#FADFA3',
+screenshot: true,
+hotkey: true,
+loop: true,
+danmaku: {
+id: '63d90a93e90d1c0098128619',
+api: '/danmu/',
+},
+video: {
+url: '/hls/63d90a93e90d1c0098128619.m3u8?t=63da887f&n=505010df&s=313686cd',
+type: "customHls",
+customType: {
+customHls: function(video, player) {
+const hls = new Hls();
+hls.loadSource(video.src);
+hls.attachMedia(video);
+}
+}
+}
+}
+if(options.video.url.endsWith('.mp4')){
+options.video.type = 'auto';
+}
+var dp = new DPlayer(options);
+}
+</script>
+
       
       
     </div>
