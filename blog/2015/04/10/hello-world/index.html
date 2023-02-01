@@ -20,7 +20,7 @@
     <link rel="alternative" href="/atom.xml" title="𝒐𝒎𝒐𝒖&#39;s Blog" type="application/atom+xml">
   
   
-    <link rel="icon" href="/blog/blog/img/favicon.png">
+    <link rel="icon" href="/blog/img/favicon.ico">
   
   
       
@@ -61,7 +61,7 @@
     <header id="header" class="inner">
         <a href="/blog/" class="profilepic">
             
-            <img lazy-src="/blog/http://cdn.omou.ml/head.jpg" class="js-avatar">
+            <img src="/blog/img/head.jpg" class="js-avatar show">
             
         </a>
 
@@ -119,18 +119,22 @@
                     <nav class="header-menu">
                         <ul>
                         
-                            <li><a href="/blog/Blog">博客首页</a></li>
+                            <li><a href="/blog/">博客首页</a></li>
                         
-                            <li><a href="/blog/works">作品展示</a></li>
+                            <li><a href="/blog/archives">文章归档</a></li>
                         
-                            <li><a href="/blog/about">留言打卡</a></li>
-                        
-                            <li><a href="/blog/FrontEndGuide">前端导航</a></li>
+                            <li><a href="/blog/about">关于</a></li>
                         
                         </ul>
                     </nav>
                     <nav class="header-nav">
                         <ul class="social">
+                            
+                                <a class="fl bilibili" target="_blank" href="https://space.bilibili.com/690764681" title="bilibili">bilibili</a>
+                            
+                                <a class="fl tieba" target="_blank" href="https://tieba.baidu.com/home/main?id=tb.1.633c9500.7UoC2IQLR_mfQStEP_xKkQ" title="tieba">tieba</a>
+                            
+                                <a class="fl weibo" target="_blank" href="https://weibo.com/u/5561524777" title="weibo">weibo</a>
                             
                         </ul>
                     </nav>
@@ -139,7 +143,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        
+                        <a href="/blog/tags/%E5%A4%A9%E6%B6%AF%E6%98%8E%E6%9C%88%E5%88%80/" style="font-size: 10px;">天涯明月刀</a> <a href="/blog/tags/%E6%B8%B8%E6%88%8F/" style="font-size: 10px;">游戏</a>
                     </div>
                 </section>
                 
@@ -176,7 +180,7 @@
         <header id="header" class="inner">
             <a href="/blog/" class="profilepic">
                 
-                    <img lazy-src="/blog/http://cdn.omou.ml/head.jpg" class="js-avatar">
+                    <img lazy-src="/blog//blog/img/head.jpg" class="js-avatar">
                 
             </a>
             <hgroup>
@@ -186,19 +190,23 @@
             <nav class="header-menu">
                 <ul>
                 
-                    <li><a href="/blog/Blog">博客首页</a></li>
+                    <li><a href="/blog/">博客首页</a></li>
                 
-                    <li><a href="/blog/works">作品展示</a></li>
+                    <li><a href="/blog/archives">文章归档</a></li>
                 
-                    <li><a href="/blog/about">留言打卡</a></li>
-                
-                    <li><a href="/blog/FrontEndGuide">前端导航</a></li>
+                    <li><a href="/blog/about">关于</a></li>
                 
                 <div class="clearfix"></div>
                 </ul>
             </nav>
             <nav class="header-nav">
                 <div class="social">
+                    
+                        <a class="bilibili" target="_blank" href="https://space.bilibili.com/690764681" title="bilibili">bilibili</a>
+                    
+                        <a class="tieba" target="_blank" href="https://tieba.baidu.com/home/main?id=tb.1.633c9500.7UoC2IQLR_mfQStEP_xKkQ" title="tieba">tieba</a>
+                    
+                        <a class="weibo" target="_blank" href="https://weibo.com/u/5561524777" title="weibo">weibo</a>
                     
                 </div>
             </nav>
@@ -255,52 +263,6 @@
 
       
       
-        <div class="page-reward">
-          <p><a href="javascript:void(0)" onclick="dashangToggle()" class="dashang">赏</a></p>
-          <div class="hide_box"></div>
-          <div class="shang_box">
-            <a class="shang_close" href="javascript:void(0)" onclick="dashangToggle()">×</a>
-            <div class="shang_tit">
-              <p>纯属好玩</p>
-            </div>
-            <div class="shang_payimg">
-              <img src="/img/alipayimg.jpg" alt="扫码支持" title="扫一扫" />
-            </div>
-              <div class="pay_explain">扫码打赏，你说多少就多少</div>
-            <div class="shang_payselect">
-              
-                <div class="pay_item checked" data-id="alipay">
-                  <span class="radiobox"></span>
-                  <span class="pay_logo"><img src="/img/alipay.png" alt="支付宝" /></span>
-                </div>
-              
-              
-                <div class="pay_item" data-id="wechat">
-                  <span class="radiobox"></span>
-                  <span class="pay_logo"><img src="/img/weixin.png" alt="微信" /></span>
-                </div>
-              
-            </div>
-            <div class="shang_info">
-              <p>打开<span id="shang_pay_txt">支付宝</span>扫一扫，即可进行扫码打赏哦</p>
-            </div>
-          </div>
-        </div>
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.2.0/zepto.min.js"></script>
-        <script type="text/javascript">
-          $(".pay_item").click(function(){
-            $(this).addClass('checked').siblings('.pay_item').removeClass('checked');
-            var dataid=$(this).attr('data-id');
-            $(".shang_payimg img").attr("src","/img/"+dataid+"img.jpg");
-            $("#shang_pay_txt").text(dataid=="alipay"?"支付宝":"微信");
-          });
-          function dashangToggle(){
-            
-            $(".hide_box").fadeToggle();
-            $(".shang_box").fadeToggle();
-          }
-        </script>
-      
     </div>
     
   </div>
@@ -323,6 +285,20 @@
     </div>
 
 
+
+<nav id="article-nav">
+  
+    <a href="/blog/2015/04/12/20150412/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          博客终于弄好啦o(∩_∩)o
+        
+      </div>
+    </a>
+  
+  
+</nav>
 
   
 </article>
@@ -382,14 +358,16 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/blog/" title="回到主页"><i class="fa fa-home"></i></a>
+            <a href="/blog/2015/04/12/20150412/" title="上一篇: 博客终于弄好啦o(∩_∩)o">
+                <i class="fa fa-angle-left"></i>
+            </a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
             <a href="/blog/" title="回到主页"><i class="fa fa-home"></i></a>
         
     </div>
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/blog/2015/04/10/hello-world/">Hello World</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/blog/2017/08/20/20170820/">天涯明月刀体验服金兰</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2015/04/28/20150428/">换域名啦，github提供的me域名。</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2015/04/15/2015-04-15/">lol中二召唤台词收集。</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2015/04/13/20150413/">关于游戏id的事</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2015/04/12/20150412/">博客终于弄好啦o(∩_∩)o</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2015/04/10/hello-world/">Hello World</a></li></ul>
     <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
     <script>
         $(".post-list").addClass("toc-article");
