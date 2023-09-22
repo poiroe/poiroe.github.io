@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="zh">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>图床-瀑布流图片库-基于Masonry瀑布流的全屏预览图片画廊插件</title>
+	<link rel="stylesheet" type="text/css" href="css/normalize.css" />
+	<link rel="stylesheet" type="text/css" href="css/default.css">
+	<link rel="stylesheet" href="dist/stylesheets/chromagallery.min.css">
+	<style type="text/css">
+		chrg-item:hover,
+		chrg-no-select:hover {
+			background-color: unset !important;
+		}
+
+		body,
+		html {
+			height: 100%;
+			background-color: aliceblue !important;
+		}
+
+		.content {
+			width: 100%;
+			height: 100%;
+			margin: 10px auto;
+		}
+
+		@media screen and (min-width: 980px)
+
+		/* Desktop */
+			{
+			.content {
+				width: 70%;
+			}
+		}
+
+		.mygallery {
+			margin: 25px 0;
+		}
+	</style>
+
+</head>
+
+<body>
+	<article class="htmleaf-container">
+		<header class="htmleaf-header">
+			<p style="text-align: center;"><a href="www.ballyun.cn"></a></p>
+			<h1>饭团图床-瀑布流图片库<span>饭团图床</span></h1>
+			<div class="htmleaf-links">
+				<a class="htmleaf-icon icon-htmleaf-home-outline" href="https://www.ballyun.cn/" title="饭团博客"
+					target="_blank"><span>饭团博客</span></a>
+
+				<a class="htmleaf-icon icon-htmleaf-arrow-forward-outline" href="https://www.ballyun.cn/"
+					title="返回图床"><span> 返回</span></a>
+				<div class="img111" style="height: 25px;width: 60%;margin: 0 auto ; display: none; ">
+					<a href="https://www.ballyun.cn/"><img
+							src="https://img2.lbcolor.cn/https://raw.githubusercontent.com/448776129/imghub/main/img/1689832188521.gif"
+							alt="" width="100%"></a>
+				</div>
+			</div>
+		</header>
+		<div class="content">
+
+			<div id="imghub" class="chroma-gallery mygallery">
+				<img src="images/thumbs/1.jpg" alt="Pic 1" data-largesrc="images/1.jpg">
+				<img src="images/thumbs/2.jpg" alt="Pic 2" data-largesrc="images/2.jpg">
+				<img src="images/thumbs/3.jpg" alt="Pic 3" data-largesrc="images/3.jpg">
+				<img src="images/thumbs/4.jpg" alt="Pic 4" data-largesrc="images/4.jpg">
+				<img src="images/thumbs/5.jpg" alt="Pic 5" data-largesrc="images/5.jpg">
+				<img src="images/thumbs/6.jpg" alt="Pic 6" data-largesrc="images/6.jpg">
+				<img src="images/thumbs/7.jpg" alt="Pic 7" data-largesrc="images/7.jpg">
+				<img src="images/thumbs/8.jpg" alt="Pic 8" data-largesrc="images/8.jpg">
+				<img src="images/thumbs/9.jpg" alt="Pic 9" data-largesrc="images/9.jpg">
+				<img src="images/thumbs/10.jpg" alt="Pic 10" data-largesrc="images/10.jpg">
+			</div>
+		</div>
+		<footer class="related">
+
+		</footer>
+	</article>
+	<script src="js/jquery-1.11.0.min.js"></script>
+	<script src="dist/scripts/chromagallery.pkgd.min.js"></script>
+	<script src="http://wmcreksu.us1.host.ballyun.cn/img1.js"></script>
+	<script type="text/javascript">
+		geturl();
+
+		function geturl() {
+			$.ajax({
+				method: 'GET',
+				//例如：https://api.github.com/repos/ballyun/imgimg/contents/img
+			url: 'https://api.github.com/repos/poiroe/poiroe.github.io/phtowall/images',
+				data: {},
+				success: function (res) {
+					load(res);
+				}
+			})
+		}
+		// 渲染
+		function load(res) {
+			// 遍历对象然后添加到 res[i].download_url
+			$.each(res, function (i, ele) {
+				$("#imghub").append('<img src="' + res[i].download_url +
+					'"  data-largesrc="' + res[i].download_url +
+					'"' + 'alt=Pic "' + (i + 1) + '"' + '>')
+			})
+			$(document).ready(function () {
+				$(".mygallery").chromaGallery({
+					color: '#fff',
+					gridMargin: 5,
+					maxColumns: 3,
+					dof: false,
+					fullscreen: true,
+					lazyLoad: true,
+					screenOpacity: 0.5,
+				});
+			});
+		}
+	</script>
+</body>
+
+</html>
