@@ -3,7 +3,7 @@ let page = 1;
 
 // 替换成你的GitHub仓库信息
 const repoOwner = 'poiroe';
-const repoName = 'poiroe.github.ioc';
+const repoName = 'poiroe.github.io';
 const folderPath = 'img'; // 替换成你存放图片的文件夹路径
 
 // 从GitHub获取图片链接的函数
