@@ -11,7 +11,10 @@ async function fetchImagesFromGitHub() {
     const response = await fetch(`https://api.github.com/repos/${repoOwner}/${repoName}/contents/${folderPath}?page=${page}&per_page=4`);
     const data = await response.json();
     
-    const imageUrls = data.map(file => file.download_url);
+    const imageUrls = data.map(file => {
+      const fileName = encodeURIComponent(file.name);
+      return `https://${repoOwner}.github.io/${folderPath}/${fileName}`;
+    });
 
     return imageUrls;
   } catch (error) {
@@ -19,6 +22,7 @@ async function fetchImagesFromGitHub() {
     return [];
   }
 }
+
 
 function changeLoadingRingColor() {
   const loadingRing = document.getElementById('loadingRing');
