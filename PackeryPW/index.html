@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Omou's Photo Wall</title>
+  <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
+<script src="https://cdn.jsdelivr.net/picturefill/2.3.1/picturefill.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/packery/2.1.2/packery.pkgd.min.js"></script>
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css"
+/>
+<!-- 一言API -->
+<script src="https://v1.hitokoto.cn/?encode=js&select=%23hitokoto" defer></script>
+    <link rel="apple-touch-icon" href="../apple-touch-icon.png">
+    <link rel="icon" href="../favicon.ico">
+</head>
+<body>
+
+<a href="https://poiroe.github.io/" target="_blank">
+  <div id="avatar" style="background-image: url('logo1.jpg');"></div>
+</a>
+
+
+<div id="navbar">
+  <a href="https://poiroe.github.io/" target="_blank">主页</a>
+  <a >VRCAHT</a>
+  <a >联系</a>
+  <!-- 言语的触动，灵魂的交流。 -->
+<p id="hitokoto">
+</p>
+
+<script>
+  document.getElementById('hitokoto').addEventListener('click', getHitokoto);
+
+  async function getHitokoto(event) {
+    const hitokotoText = document.getElementById('hitokoto');
+    hitokotoText.textContent = '(」・ω・)」うー！(／・ω・)／';
+
+    try {
+      const response = await fetch('https://v1.hitokoto.cn/');
+      const data = await response.json();
+
+      if (data.hitokoto) {
+        hitokotoText.textContent = data.hitokoto;
+      } else {
+        hitokotoText.textContent = '获取失败';
+      }
+    } catch (error) {
+      console.error('Error fetching hitokoto:', error);
+      hitokotoText.textContent = '获取失败';
+    }
+  }
+</script>
+
+
+</p>
+    <!-- 添加右上角文本 -->
+  <div id="rightCornerText">𝑪𝒐𝒅𝒆 𝒇𝒐𝒓 𝒕𝒉𝒊𝒔 𝒑𝒉𝒐𝒕𝒐 𝒘𝒂𝒍𝒍 𝒘𝒂𝒔 𝒈𝒆𝒏𝒆𝒓𝒂𝒕𝒆𝒅 𝒃𝒚 𝑪𝒉𝒂𝒕𝑮𝑷𝑻.</div>
+  
+  <!-- Add more links as needed -->
+</div>
+
+<div id="galleryContainer" class="grid">
+  <!-- Gallery items will be dynamically added here -->
+  <div class="grid__sizer"></div>
+</div>
+
+<div id="loadingOverlay">
+  <div id="loadingRing"></div>
+  <div id="loadingText"   >Omou's Photo Wall<br/>(」・ω・)」うー！(／・ω・)／にゃー！<br/>Loading...</div>
+<div style="text-align: center;  transform: translateY(-50%);">
+  <p id="hitokoto">
+    <a id="hitokoto_text">只是一个照片墙...</a>
+  </p>
+</div>
+
+</div>
+<script src="script.js"></script>
+    <script>
+      Fancybox.bind('[data-fancybox]', {
+        // Your custom options
+      });    
+    </script>
+   <script>	
+	// 获取一言数据
+
+ </script>
+</body>
+</html>
