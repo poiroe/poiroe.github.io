@@ -8,7 +8,7 @@ const folderPath = 'VRChat';
 
 async function fetchImagesFromGitHub() {
   try {
-    const response = await fetch(`https://api.github.com/repos/${repoOwner}/${repoName}/contents/${folderPath}?page=${page}&per_page=4`);
+    const response = await fetch(`https://api.github.com/repos/${repoOwner}/${repoName}/contents/${folderPath}?page=${page}&per_page=10`);
     const data = await response.json();
     
     const imageUrls = data.map(file => {
