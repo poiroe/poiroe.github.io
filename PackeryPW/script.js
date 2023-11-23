@@ -3,8 +3,8 @@ let page = 1;
 let isLoading = false;
 
 const repoOwner = 'poiroe';
-const repoName = 'poiroe.github.io';
-const folderPath = 'photowall/images';
+const repoName = 'picx-images-hosting';
+const folderPath = 'VRChat';
 
 async function fetchImagesFromGitHub() {
   try {
@@ -13,7 +13,7 @@ async function fetchImagesFromGitHub() {
     
     const imageUrls = data.map(file => {
       const fileName = encodeURIComponent(file.name);
-      return `https://${repoOwner}.github.io/${folderPath}/${fileName}`;
+      return `https://${repoOwner}.github.io/picx-images-hosting/${folderPath}/${fileName}`;
     });
 
     return imageUrls;
@@ -120,15 +120,15 @@ changeLoadingRingColor();
 // 初始化加载
 loadImages();
 
-// 延时两秒后关闭加载动画
+// 延时后关闭加载动画
 setTimeout(() => {
   document.getElementById('loadingOverlay').style.display = 'none';
-}, 3000);
+}, 3500);
 
 // 延时五秒后删除 overflow-Y: hidden
 setTimeout(() => {
   document.body.style.overflowY = 'visible';
-}, 3000);
+}, 3500);
 
 // 在滚动到页面底部时调用 loadImages
 window.addEventListener('scroll', () => {

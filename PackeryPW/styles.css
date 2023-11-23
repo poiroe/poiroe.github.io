@@ -1,5 +1,7 @@
 body {
   margin: 0;
+  padding: 0;
+  width: 100%;
   font-family: Arial, sans-serif;
   background-color: #000;
   overflow-x: hidden;
@@ -31,7 +33,7 @@ body {
 .grid {
   display: flex;
   flex-wrap: wrap;
-  width: 95%;
+  width: 96%;
   margin: 0 auto;
 }
 
@@ -112,49 +114,40 @@ body {
 
 #loadingOverlay {
   position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   text-align: center;
   background-color: rgba(0, 0, 0, 1); /* 半透明黑色背景 */
   border-radius: 10px; /* 圆角边框 */
-  padding: 100%;
+  pointer-events: auto; /* 使该伪元素能够接收鼠标事件 */
   z-index: 1000; /* 提高 z-index 避免被其他元素遮挡 */
-}
-
-
-#loadingOverlay {
-  pointer-events: none;
   display: flex;
   align-items: center;
   justify-content: center;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  pointer-events: auto; /* 使该伪元素能够接收鼠标事件 */	
 }
 
 #loadingText {
   color: #fff;
-  font-size: 2.6em;
-  z-index: 1;
+  font-size: 1.8em;
+  z-index: 1; /* 调整这个值，确保比圆圈低 */
   position: absolute; /* 相对于 #loadingOverlay 定位 */
   text-shadow: 0 0 10px rgba(255, 255, 255, 0.8); /* 添加文字发光效果 */
   user-select: none;	
-  	
 }
 
 #loadingRing {
-  width: 55em;
-  height: 55em;
+  width: 65vw; /* 设置为视口宽度的20% */
+  height: 65vw; /* 设置为视口宽度的20% */
   border: 10px solid var(--ring-color, #fff);
   border-top: 5px solid transparent;
+  z-index: 2; /* 确保这个值比文字高 */
   border-radius: 50%;
-  animation: spin 1.2s infinite linear;
+  animation: spin 2.5s infinite linear;
   box-shadow: 0 0 25px var(--box-shadow-color, rgba(161,189,255, 0.8));
   transition: box-shadow 0.2s ease; /* 添加过渡效果 */
-  user-select: none;	
+  user-select: none;
 }
 
 :root {
@@ -170,11 +163,37 @@ body {
   100% { transform: rotate(360deg); }
 }
 
+#loadingRingR {
+  position: fixed;
+  width: 63vw; /* 设置为视口宽度的20% */
+  height: 63vw; /* 设置为视口宽度的20% */
+  border: 0px solid var(--ring-color, #f8f8f8);
+  border-top: 5px solid transparent;
+  z-index: 2; /* 确保这个值比文字高 */
+  border-radius: 50%;
+  animation: spin-reverse 2.5s infinite linear;
+  box-shadow: 0 0 25px #839dff87,inset 0 0 25px rgb(188 197 255);
+  transition: box-shadow 0.2s ease; /* 添加过渡效果 */
+  user-select: none;
+}
+}
+
+@keyframes spin-reverse {
+  0% {
+    transform: rotate(0deg) translate(0, 0);
+  }
+  100% {
+    transform: rotate(-360deg) translate(0, 0);
+  }
+}
+
+
  #navbar {
       position: relative;
       width: 100%;
+	  height: 12em; /* 调整高度为适当的值 */
+      line-height: 12em; /* 保持与高度一致 */
       background-color: #000;
-      padding: 60px;
       box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.2);
       color: #fff;
       text-align: center;
@@ -185,6 +204,7 @@ body {
 
 #navbar a {
   color: #fff;
+  right:2%;
   text-decoration: none;
   margin: 0 32px;
   font-size: 22px;
@@ -192,10 +212,19 @@ body {
   position: relative;
 }
 
+/* 移动端 */
+@media only screen and (max-width: 767px) {
+  #navbar a {
+  left:12%;
+  margin: 0 12px;
+  font-size: 22px;
+  }
+}
+
 #rightCornerText {
   position: absolute;
-  top: 80%;
-  right: 8.5%;
+  top: 40%;
+  right: 0%;
   padding: 8px;
   color: #fff;
   font-size: 12px;
@@ -203,6 +232,17 @@ body {
   user-select: none;	
 	z-index: 900; /* 提高 z-index 避免被其他元素遮挡 */
 }
+
+/* 移动端 */
+@media only screen and (max-width: 767px) {
+  #rightCornerText {
+    position: absolute;
+    top: 40%;
+    right: -0.5%;
+    font-size: 7px;
+  }
+}
+
 
 #navbar a::after {
   content: '';
@@ -221,18 +261,32 @@ body {
 }
 
 
-    #avatar {
-      position: absolute;
-      top: 12%;
-      left: 30%;
-      transform: translate(0, -50%);
-      width: 100px;
-      height: 100px;
-      background-color: #fff;
-      border-radius: 50%;
-		z-index: 900;
-      /* Add your avatar image or content here */
-    }
+#avatar {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  left: 0%;
+  transform: translate(-90%, 50%); /* 调整 translate 的值 */
+  background-color: #fff;
+  border-radius: 50%;
+  z-index: 900;
+  /* Add your avatar image or content here */
+}
+
+	
+/* 移动端 */
+@media only screen and (max-width: 767px) {
+
+  #avatar {
+    position: absolute;
+    top: 0%;
+    transform: translate(-100%, -30%);s
+    max-width: 100px; /* 设置最大宽度，避免过度放大 */
+    border-radius: 50%;
+    z-index: 900;
+    /* Add your avatar image or content here */
+  }
+}
 
     #galleryContainer {
       margin-top: -40px; /* 调整 margin-top 以避免内容和导航栏的重叠 */
@@ -240,10 +294,27 @@ body {
 	
 	#hitokoto {
 	position: absolute;
-      top: 65%;
-      left: 39%;	
+      top: 23%;
+      left: 38%;	
   color: #fff;
   font-size: 13px;
   font-weight: bold; /* 添加粗体 */
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8); /* 添加文字发光效果 */		
+  text-shadow: 0 0 15px rgba(255, 255, 255, 1); /* 添加文字发光效果 */		
+}
+
+/* 移动端 */
+@media only screen and (max-width: 767px) {
+  #hitokoto {
+    top: 18%;
+    left: 40%;
+    font-size: 8px;
+  font-weight: bold; /* 添加粗体 */
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8); /* 添加文字发光效果 */
+  }
+}
+
+#loadingText .first-letter {
+  font-size: larger;  /* 保持字体大小 */
+  z-index: 0;
+  position: relative; /* 确保 z-index 生效需要定位属性 */
 }

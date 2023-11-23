@@ -21,17 +21,17 @@
 </head>
 <body>
 
-<a href="https://poiroe.github.io/" target="_blank">
-  <div id="avatar" style="background-image: url('logo1.jpg');"></div>
-</a>
-
-
 <div id="navbar">
+  <a href="https://poiroe.github.io/" target="_blank">
+  <div id="avatar" style="background-image: url('https://pic.imgdb.cn/item/655f8132c458853aef00bbee.webp');"></div>
+  </a>
   <a href="https://poiroe.github.io/" target="_blank">主页</a>
   <a >VRCAHT</a>
   <a >联系</a>
   <!-- 言语的触动，灵魂的交流。 -->
 <p id="hitokoto">
+    <!-- 添加右上角文本 -->
+  <div id="rightCornerText">𝑪𝒐𝒅𝒆 𝒇𝒐𝒓 𝒕𝒉𝒊𝒔 𝒑𝒉𝒐𝒕𝒐 𝒘𝒂𝒍𝒍 𝒘𝒂𝒔 𝒈𝒆𝒏𝒆𝒓𝒂𝒕𝒆𝒅 𝒃𝒚 𝑪𝒉𝒂𝒕𝑮𝑷𝑻.</div>
 </p>
 
 <script>
@@ -59,27 +59,46 @@
 
 
 </p>
-    <!-- 添加右上角文本 -->
-  <div id="rightCornerText">𝑪𝒐𝒅𝒆 𝒇𝒐𝒓 𝒕𝒉𝒊𝒔 𝒑𝒉𝒐𝒕𝒐 𝒘𝒂𝒍𝒍 𝒘𝒂𝒔 𝒈𝒆𝒏𝒆𝒓𝒂𝒕𝒆𝒅 𝒃𝒚 𝑪𝒉𝒂𝒕𝑮𝑷𝑻.</div>
+
   
   <!-- Add more links as needed -->
 </div>
 
 <div id="galleryContainer" class="grid">
   <!-- Gallery items will be dynamically added here -->
-  <div class="grid__sizer"></div>
+  <div class="grid__sizer">
+  
+  <div class="grid__item grid-item" style="position: absolute; left: 0%; top: 0px;">
+  <a href="https://pic.imgdb.cn/item/650dbedec458853aef9538bd.webp" data-fancybox="gallery"><img loading="lazy" src="https://pic.imgdb.cn/item/650dbedec458853aef9538bd.webp"></a></div>
+  
+  <div class="grid__item grid-item grid-item--width2" style="position: absolute; left: 49.9999%; top: 0px;"><a href="https://pic.imgdb.cn/item/655f6d7bc458853aefa6e58c.webp" data-fancybox="gallery"><img loading="lazy" src="https://pic.imgdb.cn/item/655f6d7bc458853aefa6e58c.webp"></a></div>
+  
+  <div class="grid__item grid-item" style="position: absolute; left: 0%; top: 527.869px;"><a href="https://pic.imgdb.cn/item/655f6d7ec458853aefa6f10f.webp" data-fancybox="gallery"><img loading="lazy" src="https://pic.imgdb.cn/item/655f6d7ec458853aefa6f10f.webp"></a></div>
+  
+  <div class="grid__item grid-item grid-item--width2" style="position: absolute; left: 49.9999%; top: 834.71px;"><a href="https://pic.imgdb.cn/item/650dbedec458853aef953913.webp" data-fancybox="gallery"><img loading="lazy" src="https://pic.imgdb.cn/item/650dbedec458853aef953913.webp"></a></div>
+  
+    <div class="grid__item grid-item" style="position: absolute; left: 0%; top: 527.869px;"><a href="https://pic.imgdb.cn/item/650dbedec458853aef9538fb.webp" data-fancybox="gallery"><img loading="lazy" src="https://pic.imgdb.cn/item/650dbedec458853aef9538fb.webp"></a></div>
+  
+  <div class="grid__item grid-item grid-item--width2" style="position: absolute; left: 49.9999%; top: 834.71px;"><a href="https://pic.imgdb.cn/item/650dbab7c458853aef9074a1.webp" data-fancybox="gallery"><img loading="lazy" src="https://pic.imgdb.cn/item/650dbab7c458853aef9074a1.webp"></a></div>
+  
+      <div class="grid__item grid-item" style="position: absolute; left: 0%; top: 527.869px;"><a href="https://pic.imgdb.cn/item/655f6d7cc458853aefa6ec7b.webp" data-fancybox="gallery"><img loading="lazy" src="https://pic.imgdb.cn/item/655f6d7cc458853aefa6ec7b.webp"></a></div>
+  
+  <div class="grid__item grid-item grid-item--width2" style="position: absolute; left: 49.9999%; top: 834.71px;"><a href="https://pic.imgdb.cn/item/655f776cc458853aefd71a1f.webp" data-fancybox="gallery"><img loading="lazy" src="https://pic.imgdb.cn/item/655f776cc458853aefd71a1f.webp"></a></div>
+  
+  </div>
 </div>
 
 <div id="loadingOverlay">
+  <div id="loadingRingR"></div>
   <div id="loadingRing"></div>
-  <div id="loadingText"   >Omou's Photo Wall<br/>(」・ω・)」うー！(／・ω・)／にゃー！<br/>Loading...</div>
-<div style="text-align: center;  transform: translateY(-50%);">
-  <p id="hitokoto">
-    <a id="hitokoto_text">只是一个照片墙...</a>
-  </p>
-</div>
 
+<div id="loadingText">
+  <span class="first-letter">O</span>mou's Photo Wall<br/>(」・ω・)」うー！<br/>(／・ω・)／にゃー！<br/>Loading...
 </div>
+</div>
+  
+  
+<script type="text/javascript" src="../assets/js/tong.js"></script>
 <script src="script.js"></script>
     <script>
       Fancybox.bind('[data-fancybox]', {
@@ -87,8 +106,6 @@
       });    
     </script>
    <script>	
-	// 获取一言数据
-
  </script>
 </body>
 </html>
