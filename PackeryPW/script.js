@@ -123,11 +123,11 @@ loadImages();
 // 延时后关闭加载动画
 setTimeout(() => {
   document.getElementById('loadingOverlay').style.display = 'none';
-}, 5000);
+}, 7000);
 
 setTimeout(() => {
   document.getElementById('loadingOverlayB').style.display = 'none';
-}, 2000);
+}, 3000);
 
 // 延时五秒后删除 overflow-Y: hidden
 setTimeout(() => {
@@ -140,3 +140,25 @@ window.addEventListener('scroll', () => {
     loadImages();
   }
 });
+
+// 延迟显示body
+setTimeout(() => {
+  const bodyDisplay = document.getElementById('bodydisplay');
+  bodyDisplay.style.visibility = 'visible';
+  bodyDisplay.style.opacity = '1';
+}, 5000);
+
+
+
+setTimeout(function() {
+  var style = document.createElement('style');
+  style.textContent = '@font-face {' +
+    'font-family: "Bree Serif";' +
+    'src: url("https://lib.baomitu.com/fonts/bree-serif/bree-serif-regular.woff2") format("woff2"), ' +
+         'url("https://lib.baomitu.com/fonts/bree-serif/bree-serif-regular.woff") format("woff"), ' +
+         'url("https://lib.baomitu.com/fonts/bree-serif/bree-serif-regular.ttf") format("truetype");' +
+    'font-weight: normal;' +
+    'font-style: normal;' +
+  '}';
+  document.head.appendChild(style);
+}, 5000); // 在这里设置延迟的时间，单位为毫秒
