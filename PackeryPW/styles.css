@@ -238,6 +238,7 @@ body {
   font-size: 22px;
   font-weight: bold; /* 添加粗体 */	
   position: relative;
+  z-index: 1000
 }
 
 /* 移动端 */
@@ -323,9 +324,9 @@ body {
     }
 	
 	#hitokoto {
-	position: absolute;
-      top: 23%;
-      left: 38%;	
+  position: absolute;
+  top: 23%;
+  left: 38%;
   color: #fff;
   font-size: 13px;
   font-weight: bold; /* 添加粗体 */
