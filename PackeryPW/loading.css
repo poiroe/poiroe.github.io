@@ -48,15 +48,6 @@
   justify-content: center;
 }
 
-@font-face {
-  font-family: 'Gochi Hand';
-  src: url('https://lib.baomitu.com/fonts/gochi-hand/gochi-hand-regular.woff2') format('woff2'),
-       url('https://lib.baomitu.com/fonts/gochi-hand/gochi-hand-regular.woff') format('woff'),
-       url('https://lib.baomitu.com/fonts/gochi-hand/gochi-hand-regular.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
-
 #loadingText {
   color: #fff;
   font-size: 3.5em;
@@ -128,4 +119,13 @@
   text-shadow: 0 0 10px rgba(255, 255, 255, 0.8); /* 添加文字发光效果 */
   user-select: none;	
 }
+}
+
+@font-face {
+  font-family: 'Gochi Hand';
+  src: url('https://lib.baomitu.com/fonts/gochi-hand/gochi-hand-regular.woff2') format('woff2'),
+       url('https://lib.baomitu.com/fonts/gochi-hand/gochi-hand-regular.woff') format('woff'),
+       url('https://lib.baomitu.com/fonts/gochi-hand/gochi-hand-regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
 }

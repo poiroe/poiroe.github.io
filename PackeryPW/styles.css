@@ -153,10 +153,10 @@ body {
 /* 移动端 */
 @media only screen and (max-width: 767px) {
   #navbar a {
-  top: 50%;
-  left: -2.9%;
-  margin: 0 12px;
-  font-size: 22px;
+  top: 5.8em;
+  left: -0.3em;
+  margin: 0 0.4em;
+  font-size: 1.3em;
   }
 }
 
@@ -201,8 +201,8 @@ body {
 @media only screen and (max-width: 767px) {
 #home {
   position: absolute;
-  top: 16.7%;
-  right: 20%;
+  top: 5.3em;
+  right: 2em;
   padding: 8px;
   color: #619fffe0;
   font-size: 30px;
@@ -247,7 +247,7 @@ body {
 
   #avatar {
     position: absolute;
-    transform: translate(140%, -107%);
+    transform: translate(6em, -5.4em);
     max-width: 100px; /* 设置最大宽度，避免过度放大 */
     border-radius: 50%;
     z-index: 850;
@@ -273,9 +273,9 @@ body {
 /* 移动端 */
 @media only screen and (max-width: 767px) {
   #hitokoto {
-    top: 59%;
+    top: 15.5em;
     font-size: 9px;
-     line-height: 9px;
+     line-height: 13px;
   font-weight: bold; /* 添加粗体 */
   text-shadow: 0 0 1px #e08255; /* 添加文字发光效果 */
   }
