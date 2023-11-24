@@ -96,7 +96,26 @@
   <span class="first-letter">O</span>mou's Photo Wall<br/>(」・ω・)」うー！<br/>(／・ω・)／にゃー！<br/>Loading...
 </div>
 </div>
+<div id="loadingOverlayB">
+<!-- loading淡入淡出 -->
+<script>
   
+window.addEventListener('load', function() {
+  var loadingOverlay = document.getElementById('loadingOverlay');
+  loadingOverlay.classList.add('fadeIn');
+
+  setTimeout(function() {
+    fadeOutLoadingOverlay();
+  }, 3500);
+});
+
+function fadeOutLoadingOverlay() {
+  var loadingOverlay = document.getElementById('loadingOverlay');
+  loadingOverlay.classList.remove('fadeIn');
+  loadingOverlay.classList.add('fadeOut');
+}
+
+</script>  
   
 <script type="text/javascript" src="../assets/js/tong.js"></script>
 <script src="script.js"></script>

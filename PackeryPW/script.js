@@ -123,7 +123,11 @@ loadImages();
 // 延时后关闭加载动画
 setTimeout(() => {
   document.getElementById('loadingOverlay').style.display = 'none';
-}, 3500);
+}, 5000);
+
+setTimeout(() => {
+  document.getElementById('loadingOverlayB').style.display = 'none';
+}, 2000);
 
 // 延时五秒后删除 overflow-Y: hidden
 setTimeout(() => {
