@@ -1,9 +1,11 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <link href="https://fonts.font.im/css?family=Bree+Serif|Gochi+Hand" rel="stylesheet">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="loading.css">
   <link rel="stylesheet" href="styles.css">
   <title>Omou's Photo Wall</title>
   <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
@@ -53,7 +55,10 @@ function fadeOutLoadingOverlay() {
 </script>
 </div>
 </div>
-<div id="navbar">
+
+<!-- bodydisplay。 -->
+<div id="bodydisplay" class="bodydisplay">
+  <div id="navbar">
   <a href="https://poiroe.github.io/" target="_blank">
   <div id="avatar" style="background-image: url('https://pic.imgdb.cn/item/655f8132c458853aef00bbee.webp');"></div>
   </a>
@@ -89,6 +94,7 @@ function fadeOutLoadingOverlay() {
   <div class="grid__item grid-item grid-item--width2" style="position: absolute; left: 49.9999%; top: 834.71px;"><a href="https://pic.imgdb.cn/item/655f776cc458853aefd71a1f.webp" data-fancybox="gallery"><img loading="lazy" src="https://pic.imgdb.cn/item/655f776cc458853aefd71a1f.webp"></a></div>
   
   </div>
+</div>
 </div>
 
 <script type="text/javascript" src="../assets/js/tong.js"></script>
