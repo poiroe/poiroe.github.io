@@ -5,22 +5,20 @@
   <link href="https://fonts.font.im/css?family=Bree+Serif|Gochi+Hand" rel="stylesheet">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="loading.css">
-  <link rel="stylesheet" href="styles.css">
+  <link async rel="stylesheet" href="loading.css">
+  <link async rel="stylesheet" href="styles.css">
   <title>Omou's Photo Wall</title>
   <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-<script src="https://cdn.jsdelivr.us/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
-<script src="https://cdn.bootcdn.net/ajax/libs/picturefill/3.0.3/picturefill.min.js"></script>
-<script src="https://cdn.bootcdn.net/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js"></script>
-<script src="https://cdn.bootcdn.net/ajax/libs/packery/2.1.2/packery.pkgd.min.js"></script>
-<link
-  rel="stylesheet"
-  href="https://cdn.jsdelivr.us/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css"
-/>
+  <script src="https://cdn.jsdelivr.us/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
+<script async src="https://cdn.bootcdn.net/ajax/libs/picturefill/3.0.3/picturefill.min.js"></script>
+<script async src="https://cdn.bootcdn.net/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js"></script>
+<script async src="https://cdn.bootcdn.net/ajax/libs/packery/2.1.2/packery.pkgd.min.js"></script>
+<link async rel="stylesheet" href="https://cdn.jsdelivr.us/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css" />
+<script async src="https://cdn.bootcdn.net/ajax/libs/lazyload/2.0.3/lazyload-min.js"></script>
 <!-- 一言API -->
 <script src="https://v1.hitokoto.cn/?encode=js&select=%23hitokoto" defer></script>
-    <link rel="apple-touch-icon" href="../apple-touch-icon.png">
-    <link rel="icon" href="../favicon.ico">
+    <link async rel="apple-touch-icon" href="../apple-touch-icon.png">
+    <link async rel="icon" href="../favicon.ico">
 </head>
 <body>
    
@@ -34,37 +32,25 @@
 </div>
 </div>
 <div id="loadingOverlayB">
-<!-- loading淡入淡出 -->
-<script>
-  
-window.addEventListener('load', function() {
-  var loadingOverlay = document.getElementById('loadingOverlay');
-  loadingOverlay.classList.add('fadeIn');
+loading淡入淡出
 
-  setTimeout(function() {
-    fadeOutLoadingOverlay();
-  }, 3500);
-});
-
-function fadeOutLoadingOverlay() {
-  var loadingOverlay = document.getElementById('loadingOverlay');
-  loadingOverlay.classList.remove('fadeIn');
-  loadingOverlay.classList.add('fadeOut');
-}
-
-</script>
 </div>
 </div>
 
 <!-- bodydisplay。 -->
+
 <div id="bodydisplay" class="bodydisplay">
+   <div id="home">
+   <a  style="font-family: 'Gochi Hand', cursive;">Omou's Photo Wall</a>
+   </div>
   <div id="navbar">
   <a href="https://poiroe.github.io/" target="_blank">
   <div id="avatar" style="background-image: url('https://pic.imgdb.cn/item/655f8132c458853aef00bbee.webp');"></div>
   </a>
   <a href="https://poiroe.github.io/" target="_blank">主页</a>
   <a >VRCAHT</a>
-  <a >联系</a>
+  <a >Game G</a>
+  <a >A&M</a>
   <!-- 言语的触动，灵魂的交流。 -->
 <p id="hitokoto">
     <!-- 添加右上角文本 -->
@@ -98,14 +84,16 @@ function fadeOutLoadingOverlay() {
 </div>
 
 <script type="text/javascript" src="../assets/js/tong.js"></script>
-<script src="script.js"></script>
+<script async src="script.js"></script>
     <script>
       Fancybox.bind('[data-fancybox]', {
         // Your custom options
       });    
     </script>
-<script>
-  document.getElementById('hitokoto').addEventListener('click', getHitokoto);
+	
+	<script async src="loading.js"></script>
+	<!-- 一言click -->
+<script> document.getElementById('hitokoto').addEventListener('click', getHitokoto);
 
   async function getHitokoto(event) {
     const hitokotoText = document.getElementById('hitokoto');
@@ -126,5 +114,6 @@ function fadeOutLoadingOverlay() {
     }
   }
 </script>
+
 </body>
 </html>

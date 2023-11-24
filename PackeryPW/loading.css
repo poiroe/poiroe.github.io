@@ -2,7 +2,7 @@
   visibility: hidden;
   opacity: 0;
   transition: visibility 1s, opacity 1s ease-in;
-  /* 其他样式 */
+  其他样式
 }
 
 #loadingOverlay {

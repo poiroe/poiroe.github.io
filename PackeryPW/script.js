@@ -51,6 +51,8 @@ function changeLoadingRingColor() {
   setInterval(changeBoxShadowColor, 100);
 }
 
+
+/* 创建属性 */
 function createGalleryItem(imageUrl, index) {
   const gridItem = document.createElement('div');
   gridItem.classList.add('grid__item', 'grid-item');
@@ -60,8 +62,9 @@ function createGalleryItem(imageUrl, index) {
   link.setAttribute('data-fancybox', 'gallery');
 
   const img = document.createElement('img');
-  img.loading = 'lazy';
-  img.src = imageUrl;
+  img.loading = 'lazy'; // 添加 lazy loading
+  img.setAttribute('data-src', imageUrl);  // 存储真实图片路径到 data-src
+  img.src = 'https://pic.imgdb.cn/item/65610e96c458853aefb72b48.webp'; // 占位图路径
 
   link.appendChild(img);
   gridItem.appendChild(link);
@@ -70,7 +73,25 @@ function createGalleryItem(imageUrl, index) {
   if (index % 2 === 1) {
     gridItem.classList.add('grid-item--width2');
   }
+
+  // 添加监听器，当图片进入用户视野时触发加载
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        // 图片进入视野，将 data-src 替换为实际图片路径
+        img.src = img.getAttribute('data-src');
+		  // 图片进入视野，触发布局
+		  $grid.packery('layout');
+        // 停止监听，因为图片已经加载
+        observer.unobserve(img);
+      }
+    });
+  });
+
+  // 开始监听
+  observer.observe(img);
 }
+
 
 async function loadImages() {
   if (isLoading) {
@@ -97,9 +118,16 @@ async function loadImages() {
       percentPosition: true
     });
 
-    $grid.imagesLoaded().progress(function () {
-      $grid.packery('layout');
-    });
+$grid.imagesLoaded().done(function () {
+  console.log('All images have been successfully loaded!');
+  $grid.packery('layout');
+}).progress(function () {
+  console.log('An image has been loaded!');
+  $grid.packery('layout');
+});
+
+
+
 
     setTimeout(() => {
       galleryContainer.querySelectorAll('.grid__item').forEach(item => {
