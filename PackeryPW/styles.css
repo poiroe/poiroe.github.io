@@ -139,7 +139,6 @@ body {
   transition: opacity 1.5s ease-out; /* 淡出效果，持续0.5秒，以快-慢的方式结束 */
 }
 
-
 #loadingOverlayB {
   position: fixed;
   top: 0;
@@ -158,7 +157,7 @@ body {
 
 #loadingText {
   color: #fff;
-  font-size: 1.8em;
+  font-size: 1.7em;
   z-index: 1; /* 调整这个值，确保比圆圈低 */
   position: absolute; /* 相对于 #loadingOverlay 定位 */
   text-shadow: 0 0 10px rgba(255, 255, 255, 0.8); /* 添加文字发光效果 */
@@ -256,11 +255,12 @@ body {
   top: 40%;
   right: 0%;
   padding: 8px;
-  color: #fff;
+  color: #ffffffe0;
   font-size: 12px;
   font-weight: bold; /* 添加粗体 */
   user-select: none;	
-	z-index: 900; /* 提高 z-index 避免被其他元素遮挡 */
+  z-index: 900; /* 提高 z-index 避免被其他元素遮挡 */
+  font-family: 'Merienda', cursive;
 }
 
 /* 移动端 */
@@ -343,8 +343,3 @@ body {
   }
 }
 
-#loadingText .first-letter {
-  font-size: larger;  /* 保持字体大小 */
-  z-index: 0;
-  position: relative; /* 确保 z-index 生效需要定位属性 */
-}
