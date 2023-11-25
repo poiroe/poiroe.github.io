@@ -121,11 +121,25 @@
 }
 }
 
+.custom-font {
+  font-family: 'Bree Serif', serif;
+}
+
+
 @font-face {
   font-family: 'Gochi Hand';
   src: url('https://lib.baomitu.com/fonts/gochi-hand/gochi-hand-regular.woff2') format('woff2'),
        url('https://lib.baomitu.com/fonts/gochi-hand/gochi-hand-regular.woff') format('woff'),
        url('https://lib.baomitu.com/fonts/gochi-hand/gochi-hand-regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Bree Serif';
+  src: url('https://lib.baomitu.com/fonts/bree-serif/bree-serif-regular.woff2') format('woff2'),
+       url('https://lib.baomitu.com/fonts/bree-serif/bree-serif-regular.woff') format('woff'),
+       url('https://lib.baomitu.com/fonts/bree-serif/bree-serif-regular.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }

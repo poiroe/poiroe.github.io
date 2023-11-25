@@ -2,8 +2,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link async rel="stylesheet" href="loading.css">
-  <link async rel="stylesheet" href="styles.css">
+  <link async rel="stylesheet" href="../loading.css">
+  <link async rel="stylesheet" href="../styles.css">
   <title>Omou's Photo Wall</title>
   <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.us/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
@@ -14,17 +14,20 @@
 <script async src="https://cdn.bootcdn.net/ajax/libs/lazyload/2.0.3/lazyload-min.js"></script>
 <!-- 一言API -->
 <script src="https://v1.hitokoto.cn/?encode=js&select=%23hitokoto" defer></script>
-    <link async rel="apple-touch-icon" href="../apple-touch-icon.png">
+    <link async rel="apple-touch-icon" href="../../apple-touch-icon.png">
     <link async rel="icon" href="https://cdn.jsdelivr.us/gh/poiroe/poiroe.github.io/PackeryPW/favicon.ico">
 </head>
 <body>
+
  <!-- loading淡入淡出 -->  
  <div class="loading">
 <div id="loadingOverlay">
   <div id="loadingRingR"></div>
   <div id="loadingRing"></div>
 <div id="loadingText">
-  <span class="first-letter">O</span>mou's Photo Wall<br/>(」・ω・)」うー！<br/>(／・ω・)／にゃー！<br/>Loading...
+  <span class="custom-font">
+    Game Gallery<br/>(」・ω・)」うー！<br/>(／・ω・)／にゃー！<br/>Loading...
+  </span>
 </div>
 </div>
 <div id="loadingOverlayB"></div>
@@ -39,15 +42,13 @@
   <!-- 开关按钮 -->
 <button id="myColorSwitch">change color</button>
 
-<!-- 导航 -->
   <a href="https://poiroe.github.io/" target="_blank">
   <div id="avatar" style="background-image: url('https://pic.imgdb.cn/item/655f8132c458853aef00bbee.webp');"></div>
   </a>
   <a href="https://poiroe.github.io/" target="_blank">主页</a>
-  <a >VRCaht</a>
-  <a href="Game G/index.html" target="_self">Game G</a>
-  <a href="A&M/index.html" target="_self">A&M</a>
-  
+  <a href="../index.html" target="_self">VRChat</a>
+  <a >Game G</a>
+  <a <a href="../A&M/index.html" target="_self">A&M</a>
   <!-- 言语的触动，灵魂的交流。 -->
 <p id="hitokoto">
     <!-- 添加右上角文本 -->
@@ -62,35 +63,36 @@
   <!-- Gallery items will be dynamically added here -->
   <div class="grid__sizer">
   
-  <div class="grid__item grid-item" style="position: absolute; left: 0%; top: 0px;"><a href="https://pic.imgdb.cn/item/650dbedec458853aef9538bd.webp" data-fancybox="gallery"><img loading="lazy" data-src="https://pic.imgdb.cn/item/650dbedec458853aef9538bd.webp" src="https://pic.imgdb.cn/item/650dbedec458853aef9538bd.webp"></a></div>
+  <div class="grid__item grid-item" style="position: absolute; left: 0%; top: 0px;"><a href="https://pic.imgdb.cn/item/65621a2ec458853aef1fb864.webp" data-fancybox="gallery"><img loading="lazy" data-src="https://pic.imgdb.cn/item/65621a2ec458853aef1fb864.webp" src="https://pic.imgdb.cn/item/65621a2ec458853aef1fb864.webp"></a></div>
   
-  <div class="grid__item grid-item grid-item--width2" style="position: absolute; left: 0%; top: 0px;"><a href="https://pic.imgdb.cn/item/655f6d7bc458853aefa6e58c.webp" data-fancybox="gallery"><img loading="lazy" src="https://pic.imgdb.cn/item/655f6d7bc458853aefa6e58c.webp"></a></div>
-
-    <div class="grid__item grid-item" style="position: absolute; left: 0%; top: 0px;"><a href="https://pic.imgdb.cn/item/655f6d7ec458853aefa6f10f.webp" data-fancybox="gallery"><img loading="lazy" data-src="https://pic.imgdb.cn/item/655f6d7ec458853aefa6f10f.webp" src="https://pic.imgdb.cn/item/655f6d7ec458853aefa6f10f.webp"></a></div>
-
-  <div class="grid__item grid-item grid-item--width2" style="position: absolute; left: 0%; top: 0px;"><a href="https://pic.imgdb.cn/item/650dbedec458853aef953913.webp" data-fancybox="gallery"><img loading="lazy" src="https://pic.imgdb.cn/item/650dbedec458853aef953913.webp"></a></div>
-
-<div class="grid__item grid-item" style="position: absolute; left: 0%; top: 0px;"><a href="https://pic.imgdb.cn/item/650dbedec458853aef9538fb.webp" data-fancybox="gallery"><img loading="lazy" data-src="https://pic.imgdb.cn/item/650dbedec458853aef9538fb.webp" src="https://pic.imgdb.cn/item/650dbedec458853aef9538fb.webp"></a></div>	
-	
-  <div class="grid__item grid-item grid-item--width2" style="position: absolute; left: 0%; top: 0px;"><a href="https://pic.imgdb.cn/item/650dbab7c458853aef9074a1.webp" data-fancybox="gallery"><img loading="lazy" src="https://pic.imgdb.cn/item/650dbab7c458853aef9074a1.webp"></a></div>
-
-      <div class="grid__item grid-item" style="position: absolute; left: 0%; top: 0px;"><a href="https://pic.imgdb.cn/item/655f6d7cc458853aefa6ec7b.webp" data-fancybox="gallery"><img loading="lazy" src="https://pic.imgdb.cn/item/655f6d7cc458853aefa6ec7b.webp"></a></div>
-
-  <div class="grid__item grid-item grid-item--width2" style="position: absolute; left: 0%; top: 0px;"><a href="https://pic.imgdb.cn/item/655f776cc458853aefd71a1f.webp" data-fancybox="gallery"><img loading="lazy" src="https://pic.imgdb.cn/item/655f776cc458853aefd71a1f.webp"></a></div>
+  <div class="grid__item grid-item grid-item--width2" style="position: absolute; left: 0%; top: 0px;"><a href="https://pic.imgdb.cn/item/65621978c458853aef1c8171.webp" data-fancybox="gallery"><img loading="lazy" src="https://pic.imgdb.cn/item/65621978c458853aef1c8171.webp"></a></div>
+  
+  <div class="grid__item grid-item" style="position: absolute; left: 0%; top: 0px;"><a href="https://pic.imgdb.cn/item/6562133cc458853aefffb5a6.webp" data-fancybox="gallery"><img loading="lazy" data-src="https://pic.imgdb.cn/item/6562133cc458853aefffb5a6.webp" src="https://pic.imgdb.cn/item/6562133cc458853aefffb5a6.webp"></a></div>
+  
+  <div class="grid__item grid-item grid-item--width2" style="position: absolute; left: 0%; top: 0px;"><a href="https://pic.imgdb.cn/item/656212bec458853aeffd5fd7.webp" data-fancybox="gallery"><img loading="lazy" src="https://pic.imgdb.cn/item/656212bec458853aeffd5fd7.webp"></a></div>
+    
+  <div class="grid__item grid-item" style="position: absolute; left: 0%; top: 0px;"><a href="https://pic.imgdb.cn/item/656215f8c458853aef0c7dd6.webp" data-fancybox="gallery"><img loading="lazy" data-src="https://pic.imgdb.cn/item/656215f8c458853aef0c7dd6.webp" src="https://pic.imgdb.cn/item/656215f8c458853aef0c7dd6.webp"></a></div>
+  
+  <div class="grid__item grid-item grid-item--width2" style="position: absolute; left: 0%; top: 0px;">
+  <a href="https://pic.imgdb.cn/item/656210ddc458853aeff3b9dd.webp" data-fancybox="gallery"><img loading="lazy" data-src="https://pic.imgdb.cn/item/656210ddc458853aeff3b9dd.webp" src="https://pic.imgdb.cn/item/656210ddc458853aeff3b9dd.webp"></a></div>
+  
+  <div class="grid__item grid-item" style="position: absolute; left: 0%; top: 0px;"><a href="https://pic.imgdb.cn/item/65621798c458853aef14106f.webp" data-fancybox="gallery"><img loading="lazy" data-src="https://pic.imgdb.cn/item/65621798c458853aef14106f.webp" src="https://pic.imgdb.cn/item/65621798c458853aef14106f.webp"></a></div>
+  
+  <div class="grid__item grid-item grid-item--width2" style="position: absolute; left: 0%; top: 0px;">
+  <a href="https://pic.imgdb.cn/item/656226d6c458853aef57750c.webp" data-fancybox="gallery"><img loading="lazy" data-src="https://pic.imgdb.cn/item/656226d6c458853aef57750c.webp" src="https://pic.imgdb.cn/item/656226d6c458853aef57750c.webp"></a></div>
   
   </div>
 </div>
 </div>
-
-    <script src="list.js"></script>
-    <script src="script.js"></script>
-    <script async src="loading.js"></script>
-    <script> Fancybox.bind('[data-fancybox]', {
+    <script src="../listGG.js"></script>
+    <script src="../script.js"></script>
+	<script async src="../loadingGA.js"></script>
+    <script>
+      Fancybox.bind('[data-fancybox]', {
         // Your custom options
       });    
     </script>
-	
-	<!-- 切换一言 -->
+	<!-- 一言click -->
 <script> document.getElementById('hitokoto').addEventListener('click', getHitokoto);
 
   async function getHitokoto(event) {
@@ -113,9 +115,9 @@
   }
 </script>
 
-
 <!-- JavaScript 切换颜色方案 -->
-<script> let colorScheme = 2; // 0: 默认, 1: 切换颜色1, 2: 切换颜色2
+<script>
+  let colorScheme = 2; // 0: 默认, 1: 切换颜色1, 2: 切换颜色2
 
   document.getElementById('myColorSwitch').addEventListener('click', function() {
     // 切换颜色方案
@@ -169,7 +171,6 @@
   applyColorScheme(colorScheme);
 </script>
 
-
-<script type="text/javascript" src="../assets/js/tong.js"></script>
+<script type="text/javascript" src="../../assets/js/tong.js"></script>
 </body>
 </html>
