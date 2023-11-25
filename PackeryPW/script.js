@@ -4,7 +4,7 @@ let isLoading = false;
 
 const repoOwner = 'poiroe';
 const repoName = 'picx-images-hosting';
-const folderPath = 'VRChat';
+let folderPath = 'VRChat';
 
 async function fetchImagesFromGitHub() {
   try {
@@ -22,6 +22,73 @@ async function fetchImagesFromGitHub() {
     return [];
   }
 }
+
+// 按钮点击事件监听器
+document.getElementById('switchToGame').addEventListener('click', async function() {
+  console.log('Switching to Game-G');
+  folderPath = 'Game-G';
+  console.log('FolderPath:', folderPath);
+
+  // 获取新文件夹的图片
+  const images = await fetchImagesFromGitHub();
+  console.log('Fetched images:', images);
+
+  // 更新图片墙
+  await updateImageWall(images);
+
+  document.getElementById('switchToGame').blur();
+
+});
+
+
+document.addEventListener('DOMContentLoaded', function() {
+  var switchToGame = document.getElementById('switchToGame');
+
+  switchToGame.addEventListener('click', function() {
+    // 在按钮点击时输出日志
+    console.log('按钮被点击，等待1秒后触发布局');
+	  // 移除按钮焦点
+  this.blur();
+
+    // 延迟1秒后触发布局
+    setTimeout(function() {
+      $grid.packery('layout');
+      console.log('布局已触发');
+    }, 2000); // 1秒的延迟时间
+  });
+});
+
+
+
+
+// updateImageWall定义
+async function updateImageWall(images) {
+  const galleryContainer = document.getElementById('galleryContainer');
+
+  // 获取所有现有的 grid__item 元素
+  const existingItems = galleryContainer.querySelectorAll('.grid__item');
+
+  // 删除所有现有的 grid__item 元素
+  existingItems.forEach(item => {
+    item.remove();
+  });
+
+  // 删除所有 Fancybox 容器
+  $('.fancybox__container').remove();
+
+  // 遍历新的图片数组，创建新的 grid__item 元素
+  images.forEach(imageUrl => {
+    createGalleryItem(imageUrl);
+  });
+
+  // 重新初始化 Packery Fancybox
+  Fancybox.bind('[data-fancybox]', {
+        // Your custom options
+      }); 
+}
+
+
+
 
 
 function changeLoadingRingColor() {
@@ -76,17 +143,18 @@ function createGalleryItem(imageUrl, index) {
 
   // 添加监听器，当图片进入用户视野时触发加载
   const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        // 图片进入视野，将 data-src 替换为实际图片路径
-        img.src = img.getAttribute('data-src');
-		  // 图片进入视野，触发布局
-		  $grid.packery('layout');
-        // 停止监听，因为图片已经加载
-        observer.unobserve(img);
-      }
-    });
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      // 图片进入视野，将 data-src 替换为实际图片路径
+      img.src = img.getAttribute('data-src');
+      // 图片进入视野，触发布局
+      $grid.packery('layout');
+      // 停止监听，因为图片已经加载
+      observer.unobserve(img);
+    }
   });
+}, { once: true });
+
 
   // 开始监听
   observer.observe(img);

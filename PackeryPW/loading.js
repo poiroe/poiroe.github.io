@@ -3,7 +3,7 @@
 
   setTimeout(function() {
     fadeOutLoadingOverlay();
-  }, 3500);
+  }, 3900);
 
 function fadeOutLoadingOverlay() {
   var loadingOverlay = document.getElementById('loadingOverlay');
