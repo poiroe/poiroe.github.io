@@ -151,7 +151,7 @@ loadImages();
 // 延时后关闭加载动画
 setTimeout(() => {
   document.getElementById('loadingOverlay').style.display = 'none';
-}, 7000);
+}, 5000);
 
 setTimeout(() => {
   document.getElementById('loadingOverlayB').style.display = 'none';
