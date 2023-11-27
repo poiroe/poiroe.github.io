@@ -1,30 +1,60 @@
-name: Update File List
+import os
+import json
+import requests
 
-on:
-  repository_dispatch:
-    types:
-      - trigger-update
+# GitHub 仓库信息
+repo_owner = 'poiroe'
+repo_name = 'poiroe.github.io'
+MY_GITHUB_TOKEN = os.environ['MY_GITHUB_TOKEN']
 
-jobs:
-  update-file-list:
-    runs-on: ubuntu-latest
+# VRChat、Game-G、A&M 的 API 地址
+api_endpoints = {
+    'VRChat': 'https://api.github.com/repos/poiroe/picx-images-hosting/contents/VRChat',
+    'Game-G': 'https://api.github.com/repos/poiroe/picx-images-hosting/contents/Game-G',
+    'A&M': 'https://api.github.com/repos/poiroe/picx-images-hosting/contents/A&M'
+}
 
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v2
+# GitHub 仓库中的目标文件夹
+destination_dir = 'PackeryPW/list'
 
-      - name: Set up Python
-        uses: actions/setup-python@v2
-        with:
-          python-version: 3.8
+def fetch_and_save_to_json(api_name, api_endpoint):
+    # 发送请求获取数据
+    print(f'正在请求数据：{api_endpoint}')
+    resp = requests.get(api_endpoint)
+    
+    # 检查请求是否成功
+    if resp.status_code == 200:
+        data = resp.json()
 
-      - name: Install Dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install requests
+        # 提取 download_url
+        download_urls = [item['download_url'] for item in data]
 
-      - name: Run Script
-        env:
-          MY_GITHUB_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }}
-        run: |
-          python update_file_list.py
+        json_filename = os.path.join(destination_dir, f'{api_name.lower()}.json')
+
+        # 确保目录存在
+        os.makedirs(os.path.dirname(json_filename), exist_ok=True)
+
+        # 写入数据到 JSON 文件
+        with open(json_filename, 'w', encoding='utf-8') as json_file:
+            json.dump(download_urls, json_file, ensure_ascii=False, indent=2)
+        print(f'成功写入数据到：{json_filename}')
+    else:
+        # 输出错误信息
+        print(f'错误：{resp.status_code} - {resp.text}')
+
+
+# 遍历 API 地址并获取数据
+for api_name, api_endpoint in api_endpoints.items():
+    fetch_and_save_to_json(api_name, api_endpoint)
+
+# 添加用户信息配置
+os.system('git config --global user.email "actions@github.com"')
+os.system('git config --global user.name "GitHub Actions"')
+
+# 拉取远程仓库的更改
+os.system('git pull origin master')
+
+# 推送更改到 GitHub 仓库
+os.system(f'git add {destination_dir}/*.json')
+os.system(f'git commit -m "更新 JSON 文件"')
+os.system(f'git push https://{MY_GITHUB_TOKEN}@github.com/{repo_owner}/{repo_name}.git HEAD:master')
