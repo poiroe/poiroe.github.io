@@ -26,8 +26,8 @@ def fetch_and_save_to_json(api_name, api_endpoint):
     if resp.status_code == 200:
         data = resp.json()
 
-        # 提取 download_url
-        download_urls = [item['download_url'] for item in data]
+        # 简化内容，提取 name 属性
+        entries = [{"name": item['name']} for item in data]
 
         json_filename = os.path.join(destination_dir, f'{api_name.lower()}.json')
 
@@ -36,7 +36,7 @@ def fetch_and_save_to_json(api_name, api_endpoint):
 
         # 写入数据到 JSON 文件
         with open(json_filename, 'w', encoding='utf-8') as json_file:
-            json.dump(download_urls, json_file, ensure_ascii=False, indent=2)
+            json.dump(names, json_file, ensure_ascii=False, indent=2)
         print(f'成功写入数据到：{json_filename}')
     else:
         # 输出错误信息
