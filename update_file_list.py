@@ -9,11 +9,11 @@ MY_GITHUB_TOKEN = os.environ['MY_GITHUB_TOKEN']
 
 # VRChat、Game-G、A&M 的 API 地址
 api_endpoints = {
-    'VRChat': 'https://api.github.com/repos/poiroe/picx-images-hosting/contents/vrchat',
-    'Game-G': 'https://api.github.com/repos/poiroe/picx-images-hosting/contents/game-g',
-    'A&M': 'https://api.github.com/repos/poiroe/picx-images-hosting/contents/a&m'
+    'VRChat': 'https://api.github.com/repos/poiroe/picx-images-hosting/contents/VRChat',
+    'Game-G': 'https://api.github.com/repos/poiroe/picx-images-hosting/contents/Game-G',
+    'A&M': 'https://api.github.com/repos/poiroe/picx-images-hosting/contents/A&M'
 }
-
+https://api.github.com/repos/poiroe/picx-images-hosting/contents/vrchat
 # GitHub 仓库中的目标文件夹
 destination_dir = 'PackeryPW/list'
 
