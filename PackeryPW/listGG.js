@@ -9,7 +9,7 @@ let folderPath = 'Game-G';
 
 async function fetchImagesFromGitHub() {
   try {
-    const response = await fetch(`https://api.github.com/repos/${repoOwner}/${repoName}/contents/${folderPath}?page=${page}&per_page=10`);
+    const response = await fetch(`https://raw.gitmirror.com/poiroe/poiroe.github.io/main/PackeryPW/list/game-g.json`);
     const data = await response.json();
     
     const imageUrls = data.map(file => {

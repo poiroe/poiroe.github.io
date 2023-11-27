@@ -5,11 +5,11 @@ let isLoading = false;
 
 const repoOwner = 'poiroe';
 const repoName = 'picx-images-hosting';
-let folderPath = 'A&M';
+let folderPath = 'Game-G';
 
 async function fetchImagesFromGitHub() {
   try {
-    const response = await fetch(`https://raw.gitmirror.com/poiroe/poiroe.github.io/main/PackeryPW/list/a&m.json`);
+    const response = await fetch(`https://api.github.com/repos/${repoOwner}/${repoName}/contents/${folderPath}?page=${page}&per_page=10`);
     const data = await response.json();
     
     const imageUrls = data.map(file => {
