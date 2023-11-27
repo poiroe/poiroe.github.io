@@ -43,9 +43,14 @@ def fetch_and_save_to_json(api_name, api_endpoint):
 for api_name, api_endpoint in api_endpoints.items():
     fetch_and_save_to_json(api_name, api_endpoint)
 
+# 添加用户信息配置
+os.system('git config --global user.email "actions@github.com"')
+os.system('git config --global user.name "GitHub Actions"')
+
+# 拉取远程仓库的更改
+os.system('git pull origin master')
+
 # 推送更改到 GitHub 仓库
 os.system(f'git add {destination_dir}/*.json')
 os.system(f'git commit -m "更新 JSON 文件"')
 os.system(f'git push https://{MY_GITHUB_TOKEN}@github.com/{repo_owner}/{repo_name}.git HEAD:master')
-
-
