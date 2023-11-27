@@ -2,40 +2,49 @@ import os
 import json
 import requests
 
-# GitHub repository information
+# GitHub 仓库信息
 repo_owner = 'poiroe'
 repo_name = 'poiroe.github.io'
 MY_GITHUB_TOKEN = os.environ['MY_GITHUB_TOKEN']
 
-# API endpoints for VRChat, Game-G, A&M
+# VRChat、Game-G、A&M 的 API 地址
 api_endpoints = {
     'VRChat': 'https://api.github.com/repos/poiroe/picx-images-hosting/contents/vrchat',
     'Game-G': 'https://api.github.com/repos/poiroe/picx-images-hosting/contents/game-g',
     'A&M': 'https://api.github.com/repos/poiroe/picx-images-hosting/contents/a&m'
 }
 
-# Destination directory in the GitHub repository
+# GitHub 仓库中的目标文件夹
 destination_dir = 'PackeryPW/list'
 
 def fetch_and_save_to_json(api_name, api_endpoint):
+    # 发送请求获取数据
+    print(f'正在请求数据：{api_endpoint}')
     resp = requests.get(api_endpoint)
-    data = resp.json()
+    
+    # 检查请求是否成功
+    if resp.status_code == 200:
+        data = resp.json()
+        json_filename = os.path.join(destination_dir, f'{api_name.lower()}.json')
 
-    json_filename = os.path.join(destination_dir, f'{api_name.lower()}.json')
+        # 确保目录存在
+        os.makedirs(os.path.dirname(json_filename), exist_ok=True)
 
-    # Ensure the directory exists
-    os.makedirs(os.path.dirname(json_filename), exist_ok=True)
+        # 写入数据到 JSON 文件
+        with open(json_filename, 'w', encoding='utf-8') as json_file:
+            json.dump(data, json_file, ensure_ascii=False, indent=2)
+        print(f'成功写入数据到：{json_filename}')
+    else:
+        # 输出错误信息
+        print(f'错误：{resp.status_code} - {resp.text}')
 
-    with open(json_filename, 'w', encoding='utf-8') as json_file:
-        json.dump(data, json_file, ensure_ascii=False, indent=2)
-
-# Loop through API endpoints and fetch data
+# 遍历 API 地址并获取数据
 for api_name, api_endpoint in api_endpoints.items():
     fetch_and_save_to_json(api_name, api_endpoint)
 
-# Push changes to GitHub repository
+# 推送更改到 GitHub 仓库
 os.system(f'git config user.email "actions@github.com"')
 os.system(f'git config user.name "GitHub Actions"')
 os.system(f'git add {destination_dir}/*.json')
-os.system(f'git commit -m "Update JSON files"')
+os.system(f'git commit -m "更新 JSON 文件"')
 os.system(f'git push https://{MY_GITHUB_TOKEN}@github.com/{repo_owner}/{repo_name}.git HEAD:main')
