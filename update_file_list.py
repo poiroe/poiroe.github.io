@@ -13,7 +13,7 @@ api_endpoints = {
     'Game-G': 'https://api.github.com/repos/poiroe/picx-images-hosting/contents/Game-G',
     'A&M': 'https://api.github.com/repos/poiroe/picx-images-hosting/contents/A&M'
 }
-https://api.github.com/repos/poiroe/picx-images-hosting/contents/vrchat
+
 # GitHub 仓库中的目标文件夹
 destination_dir = 'PackeryPW/list'
 
