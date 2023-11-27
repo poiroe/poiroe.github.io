@@ -21,7 +21,10 @@ def fetch_and_save_to_json(api_name, api_endpoint):
     resp = requests.get(api_endpoint)
     data = resp.json()
 
-    json_filename = f'{destination_dir}/{api_name.lower()}.json'
+    json_filename = os.path.join(destination_dir, f'{api_name.lower()}.json')
+
+    # Ensure the directory exists
+    os.makedirs(os.path.dirname(json_filename), exist_ok=True)
 
     with open(json_filename, 'w', encoding='utf-8') as json_file:
         json.dump(data, json_file, ensure_ascii=False, indent=2)
