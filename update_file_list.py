@@ -5,7 +5,7 @@ import requests
 # GitHub repository information
 repo_owner = 'poiroe'
 repo_name = 'poiroe.github.io'
-MY_GITHUB_TOKEN = os.environ['MY_MY_GITHUB_TOKEN']
+MY_GITHUB_TOKEN = os.environ['MY_GITHUB_TOKEN']
 
 # API endpoints for VRChat, Game-G, A&M
 api_endpoints = {
