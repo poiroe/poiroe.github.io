@@ -9,9 +9,9 @@ MY_GITHUB_TOKEN = os.environ['MY_GITHUB_TOKEN']
 
 # API endpoints for VRChat, Game-G, A&M
 api_endpoints = {
-    'VRChat': 'https://api.example.com/vrchat',
-    'Game-G': 'https://api.example.com/game-g',
-    'A&M': 'https://api.example.com/a&m'
+    'VRChat': 'https://api.github.com/repos/poiroe/picx-images-hosting/contents/vrchat',
+    'Game-G': 'https://api.github.com/repos/poiroe/picx-images-hosting/contents/game-g',
+    'A&M': 'https://api.github.com/repos/poiroe/picx-images-hosting/contents/a&m'
 }
 
 # Destination directory in the GitHub repository
