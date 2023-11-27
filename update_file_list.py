@@ -5,7 +5,7 @@ import requests
 # GitHub repository information
 repo_owner = 'poiroe'
 repo_name = 'poiroe.github.io'
-MY_MY_MY_GITHUB_TOKEN = os.environ['MY_MY_GITHUB_TOKEN']
+MY_GITHUB_TOKEN = os.environ['MY_MY_GITHUB_TOKEN']
 
 # API endpoints for VRChat, Game-G, A&M
 api_endpoints = {
@@ -35,4 +35,4 @@ os.system(f'git config user.email "actions@github.com"')
 os.system(f'git config user.name "GitHub Actions"')
 os.system(f'git add {destination_dir}/*.json')
 os.system(f'git commit -m "Update JSON files"')
-os.system(f'git push https://{MY_MY_MY_GITHUB_TOKEN}@github.com/{repo_owner}/{repo_name}.git HEAD:main')
+os.system(f'git push https://{MY_GITHUB_TOKEN}@github.com/{repo_owner}/{repo_name}.git HEAD:main')
