@@ -30,7 +30,7 @@ def fetch_and_save_to_json(api_name, api_endpoint):
         # 确保目录存在
         os.makedirs(os.path.dirname(json_filename), exist_ok=True)
 
-        # 写入数据到 JSON 文件
+        # 直接替换已存在的文件内容
         with open(json_filename, 'w', encoding='utf-8') as json_file:
             json.dump(data, json_file, ensure_ascii=False, indent=2)
         print(f'成功写入数据到：{json_filename}')
@@ -42,20 +42,9 @@ def fetch_and_save_to_json(api_name, api_endpoint):
 for api_name, api_endpoint in api_endpoints.items():
     fetch_and_save_to_json(api_name, api_endpoint)
 
-# 切换到 main 分支
-git checkout main
-
-# 拉取远程 main 分支的更改
-git pull origin main
-
-# 解决可能的冲突，如果有的话
-
-# 添加 PackeryPW/list 文件夹中的 JSON 文件
-git add PackeryPW/list/*.json
-
-# 提交更改
-git commit -m "更新 JSON 文件"
-
-# 推送更改到远程仓库
-git push https://{MY_GITHUB_TOKEN}@github.com/{repo_owner}/{repo_name}.git HEAD:main
-
+# 推送更改到 GitHub 仓库
+os.system(f'git config user.email "actions@github.com"')
+os.system(f'git config user.name "GitHub Actions"')
+os.system(f'git add {destination_dir}/*.json')
+os.system(f'git commit -m "更新 JSON 文件"')
+os.system(f'git push https://{MY_GITHUB_TOKEN}@github.com/{repo_owner}/{repo_name}.git HEAD:main')
