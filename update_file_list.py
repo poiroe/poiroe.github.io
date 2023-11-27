@@ -36,7 +36,7 @@ def fetch_and_save_to_json(api_name, api_endpoint):
 
         # 写入数据到 JSON 文件
         with open(json_filename, 'w', encoding='utf-8') as json_file:
-            json.dump(names, json_file, ensure_ascii=False, indent=2)
+            json.dump(entries, json_file, ensure_ascii=False, indent=2)
         print(f'成功写入数据到：{json_filename}')
     else:
         # 输出错误信息
@@ -54,7 +54,7 @@ os.system('git config --global user.name "GitHub Actions"')
 # 拉取远程仓库的更改
 os.system('git pull origin master')
 
-# 强制推送更改到 GitHub 仓库
+# 推送更改到 GitHub 仓库
 os.system(f'git add {destination_dir}/*.json')
 os.system(f'git commit -m "更新 JSON 文件"')
-os.system(f'git push -f https://{MY_GITHUB_TOKEN}@github.com/{repo_owner}/{repo_name}.git HEAD:master')
+os.system(f'git push https://{MY_GITHUB_TOKEN}@github.com/{repo_owner}/{repo_name}.git HEAD:master')
