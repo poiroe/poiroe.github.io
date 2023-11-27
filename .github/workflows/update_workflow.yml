@@ -25,6 +25,6 @@ jobs:
 
       - name: Run Script
         env:
-          MY_GITHUB_TOKEN: ${{ MY_GITHUB_TOKEN }}
+          MY_GITHUB_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }}
         run: |
           python update_file_list.py
