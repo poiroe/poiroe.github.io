@@ -5,7 +5,7 @@ body {
   font-family: Arial, sans-serif;
   background-color: #000;
   overflow-x: hidden;
-  overflow-Y: hidden;
+  overflow-y: hidden;
 }
 
 /* 滚动条的轨道 */
@@ -29,7 +29,6 @@ body {
   background-color: #555;
 }
 
-
 .grid {
   display: flex;
   flex-wrap: wrap;
@@ -42,7 +41,7 @@ body {
   width: calc(33.33% - 20px);
   margin: 10px;
   overflow: hidden;
-  user-select: none; 
+  user-select: none;
 }
 
 .grid-item img {
@@ -50,7 +49,6 @@ body {
   height: 100%;
   object-fit: cover;
 }
-
 
 .grid__sizer {
   width: calc(33.33% - 20px);
@@ -86,6 +84,7 @@ body {
     width: calc(100% - 20px);
   }
 }
+
 /* 图片容器阴影和圆角边框 */
 .grid__item img,
 .grid-item img {
@@ -112,51 +111,46 @@ body {
   transform: scale(1.05);
 }
 
-
-
-
- #navbar {
-      position: relative;
-      width: 100%;
-	  height: 12em; /* 调整高度为适当的值 */
-      line-height: 12em; /* 保持与高度一致 */
-      background-color: #000;
-      box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.2);
-      color: #fff;
-      text-align: center;
-      z-index: 800;
-      transition: opacity 0.5s ease; /* 添加淡出效果 */
-	  user-select: none;
-    }
-
+#navbar {
+  position: relative;
+  width: 100%;
+  height: 12em; /* 调整高度为适当的值 */
+  line-height: 12em; /* 保持与高度一致 */
+  background-color: #000;
+  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.2);
+  color: #fff;
+  text-align: center;
+  z-index: 800;
+  transition: opacity 0.5s ease; /* 添加淡出效果 */
+  user-select: none;
+}
 
 /* 移动端 */
 @media only screen and (max-width: 767px) {
   #navbar {
-	  height: 15em; /* 调整高度为适当的值 */
+    height: 15em; /* 调整高度为适当的值 */
   }
 }
 
-	
 #navbar a {
   color: #e09855;
   top: 5%;
-  right:3%;
+  right: 3%;
   text-decoration: none;
   margin: 0 32px;
   font-size: 22px;
-  font-weight: bold; /* 添加粗体 */	
+  font-weight: bold; /* 添加粗体 */
   position: relative;
-  z-index: 880
+  z-index: 880;
 }
 
 /* 移动端 */
 @media only screen and (max-width: 767px) {
   #navbar a {
-  top: 5.8em;
-  left: -0.3em;
-  margin: 0 0.4em;
-  font-size: 1.3em;
+    top: 5.8em;
+    left: -0.3em;
+    margin: 0 0.4em;
+    font-size: 1.3em;
   }
 }
 
@@ -168,8 +162,8 @@ body {
   color: #b6b6b6e0;
   font-size: 14.5px;
   font-weight: bold; /* 添加粗体 */
-  user-select: none;	
-  z-index: 900; /* 提高 z-index 避免被其他元素遮挡 */
+  user-select: none;
+  z-index: 870; /* 提高 z-index 避免被其他元素遮挡 */
   font-family: 'Bree Serif', serif;
 }
 
@@ -193,24 +187,24 @@ body {
   color: #619fffe0;
   font-size: 25px;
   user-select: none;
-  font-weight: bold; /* 添加粗体 */	
+  font-weight: bold; /* 添加粗体 */
   z-index: 860;
   font-family: 'Gochi Hand', cursive;
 }
 
 /* 移动端 */
 @media only screen and (max-width: 767px) {
-#home {
-  position: absolute;
-  top: 1em;
-  right: 2em;
-  padding: 8px;
-  color: #619fffe0;
-  font-size: 10px;
-  user-select: none;
-  font-weight: bold; /* 添加粗体 */	
-}
+  #home {
+    position: absolute;
+    top: 1em;
+    right: 2em;
+    padding: 8px;
+    color: #619fffe0;
+    font-size: 10px;
+    user-select: none;
+    font-weight: bold; /* 添加粗体 */
   }
+}
 
 #navbar a::after {
   content: '';
@@ -228,7 +222,6 @@ body {
   opacity: 1;
 }
 
-
 #avatar {
   position: absolute;
   width: 100px;
@@ -241,10 +234,8 @@ body {
   /* Add your avatar image or content here */
 }
 
-	
 /* 移动端 */
 @media only screen and (max-width: 767px) {
-
   #avatar {
     position: absolute;
     transform: translate(6em, -5.4em);
@@ -255,18 +246,18 @@ body {
   }
 }
 
-    #galleryContainer {
-      margin-top: -40px; /* 调整 margin-top 以避免内容和导航栏的重叠 */
-    }
-	
-	#hitokoto {
+#galleryContainer {
+  margin-top: -40px; /* 调整 margin-top 以避免内容和导航栏的重叠 */
+}
+
+#hitokoto {
   position: absolute;
   top: 23%;
   left: 50%;
   transform: translateX(-50%);
   color: #de3939;
   font-size: 14px;
-  z-index: 870;		
+  z-index: 870;
   font-weight: bold; /* 添加粗体 */
   text-shadow: 0 0 2px rgb(197 51 51 / 54%); /* 添加文字发光效果 */
 }
@@ -276,16 +267,16 @@ body {
   #hitokoto {
     top: 18.8em;
     font-size: 9px;
-     line-height: 13px;
-  font-weight: bold; /* 添加粗体 */
-  text-shadow: 0 0 1px #e08255; /* 添加文字发光效果 */
+    line-height: 13px;
+    font-weight: bold; /* 添加粗体 */
+    text-shadow: 0 0 1px #e08255; /* 添加文字发光效果 */
   }
 }
 
 #myColorSwitch {
   position: absolute;
   top: 0;
-  right: 2rem;
+  right: 10rem;
   font-size: 1.2em;
   transform: translateX(-50%);
   z-index: 999;
@@ -296,12 +287,12 @@ body {
   cursor: pointer; /* 鼠标样式 */
   color: #e08255;
   font-weight: bold; /* 添加粗体 */
-  font-family: 'Gochi Hand', cursive;	
+  font-family: 'Gochi Hand', cursive;
 }
 
 /* 移动端 */
 @media only screen and (max-width: 767px) {
-	#myColorSwitch {
-  right: -4rem;
-		}
+  #myColorSwitch {
+    right: -4rem;
+  }
 }

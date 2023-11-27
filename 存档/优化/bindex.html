@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Lazy Load and Packery</title>
+</head>
+<body>
+<div class="scroll-container">
+<div id="galleryContainer" class="grid">
+  <!-- Gallery items will be dynamically added here -->
+  <div class="grid__sizer"></div>
+</div>
+
+<div id="loadingOverlay">
+  <div id="loadingRing"></div>
+  <div id="loadingText">Loading...</div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="https://cdn.jsdelivr.net/picturefill/2.3.1/picturefill.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/packery/2.1.2/packery.pkgd.min.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>
