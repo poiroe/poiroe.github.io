@@ -4,7 +4,7 @@ on:
   repository_dispatch:
     types:
       - trigger-update
-       workflow_dispatch:
+  workflow_dispatch:
 
 jobs:
   update-file-list:
