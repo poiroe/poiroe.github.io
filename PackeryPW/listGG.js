@@ -14,7 +14,7 @@ async function fetchImagesFromGitHub() {
     
     const imageUrls = data.map(file => {
       const fileName = encodeURIComponent(file.name);
-      return `https://cdn.jsdelivr.us/gh/poiroe/picx-images-hosting/${folderPath}/${fileName}`;
+      return `https://jsd.cdn.zzko.cn/gh/poiroe/picx-images-hosting/${folderPath}/${fileName}`;
     });
 
     return imageUrls;
