@@ -124,3 +124,23 @@ window.addEventListener('scroll', () => {
     loadImages();
   }
 });
+
+// ...
+
+let counter = 0;
+const maxExecutions = 5;
+
+// 每隔5秒执行一次loadImages，一共执行5次
+const intervalId = setInterval(() => {
+  if (counter < maxExecutions) {
+    console.log(`Interval triggered: Execution ${counter + 1}`);
+    loadImages();
+    counter++;
+  } else {
+    // 达到5次后停止定时器
+    clearInterval(intervalId);
+    console.log('Interval stopped.');
+  }
+}, 5000);
+
+// ...
